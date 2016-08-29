@@ -1,0 +1,103 @@
+<header class="header">
+	<img src="../img/logo.png" alt="" class="logo middle-y" ng-click="goHome()">
+	<span class="middle-y logo-text"><h4>INDIAN <br>CREATIVE FORUM</h4></span>
+	<span ng-click="forum()" class="middle-y"><p class="btn btn-header2">Forum</p></span>
+	<span ng-click="kcenter()" class="middle-y"><p class="btn btn-header2">Knowledge Center</p></span>
+
+	<span ng-click="dashboard()" class="middle-y"><p class="btn btn-header2">Contract</p></span>
+	<span ng-click="dropdownMenu()" class="middle-y fa fa-gear"></span>
+
+	<div class="dropdownMenu">
+		<ul>
+			<li ng-click="profile()"><p>Profile</p></li>
+			<li ng-click="logout()"><p>Logout</p></li>
+		</ul>
+	</div>
+
+</header>
+
+<div id="content" class="container invoice">
+
+		<div class="branding" >  <!-- Logo branding -->
+			<img check-image ng-src = {{imgUrl}} width="100" height="100" ng-show="brandingToggle" />
+			<form id        =  "uploadForm"
+			     enctype   =  "multipart/form-data"
+			     ng-submit = "uploadFile()"
+			     method    =  "post"
+			>	
+				<input type="file" file-model="userPhoto" change-func = "uploadFile" id="profile-pic"/>
+				<label for="profile-pic"><p>Add Branding</p></label>
+				<input type="submit" value="Upload Image" name="submit" ng-show = 'false'  />
+			</form>
+		</div>
+		<div class="invoice-header">
+		<h2>Invoice</h2>
+			<div class="from">
+				<p>From: </p>{{freelancer}}<br>
+				<span ng-if="clientCompany">{{freelanceCompany}} </span><br>
+				<p>Issued On: </p>{{issueDate | date:'short'}}<br>
+			</div>
+			<div class="to">
+				<p>To: </p>{{client}}<br>
+				<span ng-if="clientCompany">{{clientCompany}}<br></span>
+				<p>Due On:</p> <input type="date" ng-model="dueDate">
+			</div>
+		</div>
+	<div class="invoice-content">
+		<div class="section item-table">
+				<div>
+					<h5>Item Name</h5><br>
+					{{workSubject}}
+				</div>
+				<div>
+					<h5  ng-if="iterationFee != 0 && iterations != 0">Number Of iterations</h5><br>
+					<input ng-if="iterationFee != 0 && iterations != 0 " type="number" ng-model="units" ng-init='units=1' min = "1" placeholder="No of iterations happened" ng-change="calculate()">
+					<span ng-if = "feeType == 'in Milestones'">
+						<input type="number" ng-model="milestoneNumber" ng-init='milestoneNumber=0' min = "0" placeholder="Milestone Number" ng-change="calculate()">
+					</span>
+				</div>
+				<div ng-show="iterationFee != 0 && iterations != 0">
+					<h5>Extra Iteration Fee</h5><br>
+					<span ">{{iterationFee}}</span>
+				</div>
+				<div>
+					<h5> Total </h5><br>
+					{{lineTotal}}
+				</div>
+		</div>
+		<div class="section item-table" style="margin-top: 100px">
+
+			<div>
+				<h4>Subtotal </h4><br><br>
+				<h4>Amount Paid </h4><br><br>
+				<h3>Total </h3>
+			</div>
+			<div>
+			: &nbsp; {{subtotal}}<br><br>
+			: &nbsp; {{advancePayment}}<br><br>
+			: &nbsp; {{total}}
+			</div>
+			<br>
+			<br>
+		</div>
+	</div>
+	<div style="border: 1px solid; padding: 20px; margin-top: 20px; ">
+		<div class="section">
+			<h5>Payment:</h5><br><br>
+			Contact {{freelanceEmail}} for further details on how to pay.<br>
+			<br><br>
+			<h5>Late fee:</h5><br><br>
+			If this invoice is unpaid by {{dueDate | date:'short'}}, a non-compounding late fee of {{lateFee}}% accrues monthly on the outstanding amount.<br>
+			<br><br>
+			<h5>Notes:</h5><br><br>
+			<textarea ng-model="notes" ng-init="notes='Thank you for your business!'"></textarea>
+			<br><br>
+		</div>
+		<div class="section">
+			<h5>CONTRACT:</h5>
+			{{freelancer}} ( {{issueDate | date:'short'}} )
+		</div>
+	</div>
+	<br>
+	<input type="button" class="btn" ng-click="savePdf()" value="Save As PDF">
+</div>

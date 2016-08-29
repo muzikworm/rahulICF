@@ -1,0 +1,97 @@
+<div class="kc-jumbotron-card kc-jumbotron-card-3">
+	<div class="info middle">
+		<div class="info-left">
+			<img src="img/contract_essentials.png">
+		</div>
+		<div class="info-right">
+			<h1><span>Contract</span> Essentials</h1>
+			<p>There’s no sure key to success, yet when working on a business,<br> there are a few hacks to accelerate your climb.</p>	
+		</div>
+	</div>
+</div>
+	
+<div class="kcenter-step-bottom">
+	<div class="content">
+		<div class="content-left">
+			<div class="side-menu">
+				<p><a href="knowledgeCenter/preparing_for_pro_league"><span>Preparing</span> For Pro League</a></p>
+				<p><a href="knowledgeCenter/contract_essentials" class="active"><span>Contract</span> Essentials</a></p>
+				<p><a href="knowledgeCenter/work_time"><span>Work</span> Time</a></p>
+				
+			</div>
+			
+		</div>
+		<div class="content-right">
+			<p>A contract contains all the points of agreement mutually agreed by parties. Being legally binding, it protects the interests of all sides in case of dispute, and is a proof of their commitment to the collaboration.</p>
+
+			<h3>Key Points</h3>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>01</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>A good contract is one which covers all possible scope of working together. Make it a point to discuss all key points before taking up the work, and formalize them in a written and signed contract.</p>
+				</div>
+			</div>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>02</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>To start with, explicitly mention the work timeline(s), approval process and the budget. Discuss with the client, and put your points and concerns forward wherever required.</p>
+				</div>
+			</div>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>03</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>Quite often, the client sends a work back for making iterations, which can vary from a couple to almost redoing the work itself. In such a case, it is advisable to pre-discuss and include in the contract cost of iterations (if any), along with any after sales support required post the approval.</p>
+				</div>
+			</div>
+
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>04</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>Intellectual Property Rights, licenses and credits on the work are extremely important factors for a creative professional. In hired work, these automatically belong to the commissioner. If you plan on having it otherwise, ensure that it is written in the contract.</p>
+				</div>
+			</div>
+
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>05</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>To avoid a bad experience due to termination, your contract should contain explicit details on the possible manners and effects of termination for both the parties.</p>
+				</div>
+			</div>
+		</div>
+
+		<p class="content-bottom-cta">Ready to <span>TRANXACT</span> ?</p>
+
+		<div class="content-bottom-share-icons">
+			<div class="share-icons">
+				<span class='st_facebook_large' displayText='Facebook'></span>
+				<span class='st_twitter_large' displayText='Tweet'></span>
+				<span class='st_linkedin_large' displayText='LinkedIn'></span>
+				<span class='st_email_large' displayText='Email'></span>
+			</div>
+		</div>
+
+		<p class="content-bottom-feedback">Feel something is missing? <span ng-click="togglePopup()">Fill in the feedback here.</span></p>
+	</div>
+</div>
+
+<div class="feedback-popup middle" style="position:fixed;">
+	<i class="fa fa-times form-close" aria-hidden="true" ng-click="togglePopup()"></i>
+	<h3>Hi, {{username}},<br> Please share your valuable feedback!</h3>
+	<form method="POST" ng-submit="feedback()" class="form form-feedback">
+		<textarea placeholder="write feedback here..." ng-model="feedbackmsg"></textarea>
+		<input type="submit" value="Submit">
+	</form>
+</div>
+
+
+<div ng-include="'templates/footer.html'"></div>

@@ -1,0 +1,77 @@
+<div class="container">
+	<div class="dashboard-tabs">
+		<h4 ng-click="dashboardTab1()" class="dashboard-tab1">Contracting {{imgUrl}}</h4>
+		<h4 ng-click="dashboardTab2()" class="dashboard-tab2">Employing</h4>
+		<div class="btn-create-contract">
+			<button ng-click="sendContractCategory()">Create Contract </button>
+		</div>
+	</div>
+	<div class="dashboard-tab1-view">
+			<div ng-repeat="x in contracts" ng-show="x.freelancer == x.offerer || x.freelancerCompany == x.offerer" class="text-box">
+				
+				<table>
+					<tr>
+						<th>Status</th>
+						<th>Acceptor</th>
+						<th>Contract Date</th>
+						<th>Fee</th>
+						<th></th>
+						<th></th>
+					</tr>
+					<tr>
+						<td class="status">{{status(x)}}</td>
+						<td class="highlight" ng-click="gotoContract(x._id)">{{x.acceptor}}</td>
+						<td class="contract-date">{{x.contractDate | date : 'mediumDate'}} to {{x.endDate | date : 'mediumDate' }}</td>
+						<td class="fee">{{x.currency}} {{x.fee}} <span ng-if="x.feetype == 'a Pro-Rated Charge'"> {{x.proratedType}} </span></td>
+						<td><a href="#"  class="track" ng-click="seeTrail(x._id)" title="Track Your Contract">Track</a></td>
+						<td><a href="#" class="close" ng-click="deleteContract(x._id)" title="Delete Contract"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+					</tr>
+				</table>
+
+				<p></p><br>
+					
+					<br>
+					
+
+					<!-- <img ng-src= {{imgUrl(x._id)}} / > -->
+			</div> 
+	</div>
+	<div class="dashboard-tab2-view">
+		<div ng-repeat="x in contracts" ng-show="x.client == x.offerer || x.clientCompany == x.offerer" class="text-box">
+				<div class="contract-logo">
+					<img ng-src= {{imgUrl(x._id)}} / >
+				</div>
+				<div>
+					<p><b>Status :</b> {{status(x)}}</p><br>
+					<a href="#" class="acceptor" ng-click="gotoContract(x._id)">{{x.acceptor}}</a>
+					<br>
+				</div>
+					<p>{{x.contractDate | date : 'mediumDate'}} to {{x.endDate | date : 'mediumDate' }}</p><br>
+					<a href="#"  class="track" ng-click="seeTrail(x._id)" title="Track Your Contract "><p><b>Track</b>&nbsp;&nbsp;</p><i class="fa fa-line-chart" aria-hidden="true"></i></a>
+					<!-- <p>{{x.currency}} {{x.fee}} <span ng-if="x.feetype == 'a Pro-Rated Charge'"> {{x.proratedType}} </span></p><br> -->
+					<a href="#" class="close" ng-click="deleteContract(x._id)"><i class="fa fa-times" aria-hidden="true"></i></a>
+			</div>
+	</div>	
+</div>
+
+
+<div class="kc-footer">
+	<div class="footer-white">
+		<ul>
+			<li><p><a href="">ABOUT</a></p></li>
+			<li><p><a href="">BLOG</a></p></li>
+			<li><p><a href="">FAQS</a></p></li>
+			<li><p><a href="">PRIVACY POLICY</a></p></li>
+			<li><p><a href="">TERMS & CONDITIONS</a></p></li>
+			<li><p><a href="">CONTACT US</a></p></li>
+		</ul>
+		<div class="social-icons">
+			<ul>
+				<li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+				<li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+			</ul>
+		</div>
+		<p class="copyright-text">&copy; Indian Creative Forum 2016</p>
+
+	</div>
+</div>

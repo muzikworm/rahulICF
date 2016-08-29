@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html ng-app="cooper">
+<head>
+	<base href="/">
+	<title></title>
+	<meta name="viewport" content="width=device-width">
+    
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/flaticon.css">
+	<link rel="stylesheet" type="text/css" href="fonts/flaticon/flaticon.css">
+
+	<link href='https://fonts.googleapis.com/css?family=Lato:300,100,100italic,300italic,400,400italic' rel='stylesheet' type='text/css'>
+
+	<script type="text/javascript" src="js/angular/angular.min.js"></script>
+	<script type="text/javascript" src="js/angular/angular-ui-router.min.js"></script>
+	<script type="text/javascript" src="js/angular/route-styles.js"></script>
+	<script type="text/javascript" src="js/angular/ui-route-styles.js"></script>	
+	<script type="text/javascript" src="js/angular/ngStorage.min.js"></script>
+	<script type="text/javascript" src="js/angular/signature_pad.js"></script>
+    <script type="text/javascript" src="js/angular/ng-signature-pad.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/config.js"></script>
+	<script type="text/javascript" src="js/controllers/homeCtrl.js"></script>
+	<script type="text/javascript" src="js/controllers/loginCtrl.js"></script>
+	<script type="text/javascript" src="js/controllers/signupCtrl.js"></script>
+	<script type="text/javascript" src="js/controllers/contractCtrl.js"></script>
+	<script type="text/javascript" src="js/controllers/dashboardCtrl.js"></script>
+    <script type="text/javascript" src="js/controllers/profileCtrl.js"></script>
+    <script type="text/javascript" src="js/controllers/uploadCtrl.js"></script>
+    <script type="text/javascript" src="js/controllers/contractDetailsCtrl.js"></script>
+    <script type="text/javascript" src="js/controllers/contractReviewCtrl.js"></script>
+    <script type="text/javascript" src="js/controllers/invoiceCtrl.js"></script>
+    <script type="text/javascript" src="js/controllers/signContractCtrl.js"></script>
+    <script type="text/javascript" src="js/controllers/auditTrailCtrl.js"></script>
+    <script type="text/javascript" src="js/controllers/forumCtrl.js"></script>
+    <script type="text/javascript" src="js/controllers/QuestionCtrl.js"></script>
+    <script type="text/javascript" src="js/controllers/testCtrl.js"></script>
+    <script type="text/javascript" src="js/controllers/kcenter.js"></script>
+    <script type="text/javascript" src="js/controllers/kcenterinfo.js"></script>
+    <script type="text/javascript" src="js/controllers/headerCtrl.js"></script>
+
+	<script type="text/javascript" src="js/services/authUser.js"></script>
+    <script type="text/javascript" src="js/services/contractShare.js"></script>
+    <script type="text/javascript" src="js/services/fileUpload.js"></script>
+    <script type="text/javascript" src="js/services/directives.js"></script>
+    <script type="text/javascript" src="js/html2canvas.js"></script>
+    <script type="text/javascript" src="js/fuse.min.js"></script>
+
+    <script src="https://use.fontawesome.com/2cb48beb17.js"></script>
+    <script src="js/jquery/jquery-1.7.1.min.js"></script>
+    <script src="js/jquery/jquery-ui-1.8.17.custom.min.js"></script>    
+ 	<script type="text/javascript" src="js/pdfmake.min.js"></script>
+ 	<script type="text/javascript" src="js/vfs_fonts.js"></script>
+ 	<script type="text/javascript" src="js/angular/google-plus-signin.js"></script>
+ 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.9/angular-filter.js"></script>
+ 	
+
+ 	<script type="text/javascript">var switchTo5x=true;</script>
+	<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+	<script type="text/javascript">stLight.options({publisher: "65eebfcc-2751-43d4-8db7-68896ddd2903", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+
+<!--  	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-79998752-1', 'auto');
+		ga('send', 'pageview');
+
+	</script>
+ -->
+<script>
+    window.fbAsyncInit = function() {
+       FB.init({
+            appId      : '610303389132012',
+            status     : false, 
+            cookie     : true,
+            xfbml      : true,
+            oauth      : true
+        });
+        $(".fb_login").click(function() {
+           FB.login(Facebook_login);
+        }); 
+    };
+
+
+    (function(d){
+    var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+    js = d.createElement('script'); js.id = id; js.async = true;
+    js.src = "//connect.facebook.net/en_US/all.js";
+    d.getElementsByTagName('head')[0].appendChild(js);
+    }(document));
+</script>
+<!-- Start of [Tawk.to](http://tawk.to) Script -->
+
+   <!--  <script type="text/javascript">
+
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+
+    (function(){
+
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+
+    s1.async=true;
+
+    s1.src='https://embed.tawk.to/57ab9ee61eed4ecf0623f404/default';
+
+    s1.charset='UTF-8';
+
+    s1.setAttribute('crossorigin','*');
+
+    s0.parentNode.insertBefore(s1,s0);
+
+    })();
+
+    </script>
+ -->
+    <!--End of [Tawk.to](http://tawk.to) Script-->
+</head>
+<body>
+    <div ng-controller="headerCtrl">
+        <div class="verified-alert" ng-show="!confirmed">
+            <p>Your email is not verifed yet. Please check your email for verification link.</p>
+        </div>
+        <header class="landing-header" ng-show="loggedOut">
+            <a href="/"><img src="../img/logo.png" alt="" class="logo middle-y"></a>
+            <span class="middle-y logo-text"><a href="/"><h4>INDIAN <br>CREATIVE FORUM</h4></a></span>
+            <span ng-click="togglePopup2()" class="middle-y"><p class="btn btn-header">Sign Up</p></span>
+            <span ng-click="togglePopup()" class="middle-y"><p class="btn btn-header">Log In</p></span>
+        </header>
+
+        <header class="header" ng-show="!loggedOut">
+            <a href="/"><img src="../img/logo.png" alt="" class="logo middle-y"></a>
+            <span class="middle-y logo-text"><a href="/"><h4>INDIAN <br>CREATIVE FORUM</h4></a></span>
+            <span class="middle-y"><a href="/forum">Forum</a></span>
+            <span class="middle-y"><a href="/knowledgeCenter">Knowledge Center</a></span>
+
+            <span ng-click="dashboard()" class="middle-y"><a href="/request">Tranxact</a></span>
+            <span class="middle-y fa fa-bell"></span>
+            <span ng-click="dropdownMenu()" class="middle-y"><img ng-src="{{imgurl}}" src="/img/user.png"></span>
+
+            <div class="dropdownMenu">
+                <ul>
+                    <li ng-click="profileSelf()"><p>Profile</p></li>
+                    <li ng-click="logout()"><p>Logout</p></li>
+                </ul>
+            </div>
+
+        </header>
+        <div class="login-popup middle" ng-show="hidden">
+            <i class="fa fa-times form-close" aria-hidden="true" ng-click="togglePopup()"></i>
+            <i class="fa fa-user form-icon middle-x"></i>
+            <form method="POST" ng-submit="login()" class="form form-login">
+                <input type="email" ng-model="email" placeholder="email" required>
+                <div style="position:relative;">
+                    <input type="password" ng-model="password" placeholder="password" required>
+                    <a href="/password_reset" class="forget-pass" ng-click="togglePopup()">forgot password?</a>
+                </div>
+                <input type="submit" value="login">
+            </form>
+            <p class="text-sep text-sep1" style="text-align:center;"><span>Or</span></p>
+            <div class="login-form-social-group">
+                <p ng-click="fbLogin()" class="btn btn-fb-login"><i class="fa fa-facebook"></i>Facebook</p>
+                <google-plus-signin clientid="515255801745-jjmd7qsohhs1j0pd5ai7sl4vk3qf4aou.apps.googleusercontent.com" autorender="false" customtargetid="google-login-custom">
+                    <p id="google-login-custom" ng-click="googleLogin()"  class="btn btn-fb-gplus"><i class="fa fa-google-plus"></i>Google</p>
+                </google-plus-signin>
+            </div>
+            
+            <div class="form-footer">
+                <p>Not a member? <a href="#" ng-click="togglePopup2()">Create Account</a></p>
+            </div>
+        </div>
+
+
+        <div class="signup-popup middle" ng-show="hidden2">
+            <i class="fa fa-times form-close" aria-hidden="true" ng-click="togglePopup2()"></i>
+            <i class="fa fa-pencil form-icon middle-x"></i>
+            <form method="POST" ng-submit="signup()" class="form form-signup">
+                <div class="form-group">
+                    <input type="text" ng-model="fname" placeholder="first name" required>
+                    <input type="text" ng-model="lname" placeholder="last name" required> 
+                </div>
+                <input type="text" ng-model="email" placeholder="email" required> 
+                <input type="password" ng-model="password" placeholder="password" required>
+                <input type="password" ng-model="cpassword" ng-change="cpass(cpassword)" placeholder="confirm password" required>
+                <p ng-show="confirm_password">Passwords do not match</p> 
+                <input type="submit" value="signup">
+            </form>
+            <p class="text-sep text-sep1" style="text-align:center;"><span>Or</span></p>
+            <div class="login-form-social-group">
+                <p ng-click="fbLogin()" class="btn btn-fb-login"><i class="fa fa-facebook"></i>Facebook</p>
+                <google-plus-signin clientid="515255801745-jjmd7qsohhs1j0pd5ai7sl4vk3qf4aou.apps.googleusercontent.com" autorender="false" customtargetid="google-login-custom">
+                    <p id="google-login-custom" ng-click="googleLogin()"  class="btn btn-fb-gplus"><i class="fa fa-google-plus"></i>Google</p>
+                </google-plus-signin>
+            </div>
+            <div class="form-footer">
+                <p>Already a member? <a href="#" ng-click="togglePopup()">Login Here</a></p>
+            </div>
+        </div>
+
+        <div class="contactus-popup middle" style="position:fixed;">
+            <i class="fa fa-times form-close" aria-hidden="true" ng-click="togglePopupContact()"></i>
+            <form method="POST" ng-submit="contactus()" class="form form-contactus">
+                <input type="text" ng-model="name" placeholder="name">
+                <input type="email" ng-model="email" placeholder="email">
+                <input type="text" ng-model="subject" placeholder="subject">
+                <textarea placeholder="write message here..." ng-model="message"></textarea>
+                <input type="submit" value="Submit">
+            </form>
+            <div class="form-footer">
+                <p><span>indiancreativeforum@gmail.com</span> <span>+91 9015598760</span></p>
+            </div>
+        </div>
+        <div class="login-curtain" ng-show="hidden">
+            
+        </div>
+
+        <div class="login-curtain" ng-show="hidden2">
+            
+        </div>
+        
+    </div>
+	
+	<div ui-view style="position: absolute;width: 100%;height: calc(100% - 60px);"></div>
+</body>
+
+</html>

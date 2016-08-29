@@ -1,0 +1,98 @@
+<div class="kc-jumbotron-card">
+	<div class="info middle">
+		<div class="info-left">
+			<img src="img/Industry_Work_Standards1.png">
+		</div>
+		<div class="info-right">
+			<h1><span>Industry</span> Work Standards</h1>
+			<p>We get that not everyone gets you. Therefor we are on a <br>
+			mission to help you identify the right creative for you.</p>	
+		</div>
+	</div>
+</div>
+	
+<div class="kcenter-step-bottom">
+	<div class="content">
+		<div class="content-left">
+			<div class="side-menu">
+				<p><a href="knowledgeCenter/Identify_The_Right_Creative"><span>Identify</span> The Right Creative</a></p>
+				<p><a href="knowledgeCenter/Identify_The_Right_Client"><span>Identify</span> the Right Client</a></p>
+				<p><a href="knowledgeCenter/Business_Basics"><span>Business</span> Basics</a></p>
+				<p><a href="knowledgeCenter/Industry_Work_Standards" class="active"><span>Industry</span> Work Standards</a></p>
+				<p><a href="knowledgeCenter/Protect_Your_Work"><span>Protect</span> Your Work</a></p>
+				<p><a href="knowledgeCenter/Conduct_A_Business_Transaction"><span>Conduct</span> a Business Transaction</a></p>
+				
+			</div>
+			
+		</div>
+		<div class="content-right">
+			<p>A transaction is nothing short of being team-work, where both the sides contribute to make the experience a remarkable one.</p>
+
+			<h3>Key Points</h3>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>01</h5>
+					<p class="ex-text" ng-click="showEx1()">Ex</p>
+				</div>
+				<div class="keypoints-right">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua.</p>
+					<p class="keypoint-ex keypoint-ex1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat.</p>
+				</div>
+			</div>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>02</h5>
+					<p class="ex-text" ng-click="showEx2()">Ex</p>
+				</div>
+				<div class="keypoints-right">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua.</p>
+					<p class="keypoint-ex keypoint-ex2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat.</p>
+				</div>
+			</div>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>03</h5>
+					<p class="ex-text" ng-click="showEx3()">Ex</p>
+				</div>
+				<div class="keypoints-right">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua.</p>
+					<p class="keypoint-ex keypoint-ex3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat.</p>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<p class="content-bottom-cta">Ready to <span>TRANXACT</span> ?</p>
+
+		<div class="content-bottom-share-icons">
+			<div class="share-icons">
+				<span class='st_facebook_large' displayText='Facebook'></span>
+				<span class='st_twitter_large' displayText='Tweet'></span>
+				<span class='st_linkedin_large' displayText='LinkedIn'></span>
+				<span class='st_email_large' displayText='Email'></span>
+			</div>
+		</div>
+
+		<p class="content-bottom-feedback">Feel something is missing? <span ng-click="togglePopup()">Fill in the feedback here.</span></p>
+	</div>
+</div>
+
+<div class="feedback-popup middle" style="position:fixed;">
+	<i class="fa fa-times form-close" aria-hidden="true" ng-click="togglePopup()"></i>
+	<h3>Hi, {{username}},<br> Please share your valuable feedback!</h3>
+	<form method="POST" ng-submit="feedback()" class="form form-feedback">
+		<textarea placeholder="write feedback here..." ng-model="feedbackmsg"></textarea>
+		<input type="submit" value="Submit">
+	</form>
+</div>
+<div ng-include="'templates/footer.html'"></div>

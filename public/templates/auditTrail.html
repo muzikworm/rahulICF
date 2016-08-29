@@ -1,0 +1,65 @@
+<header class="header">
+	<img src="../img/logo.png" alt="" class="logo middle-y" ng-click="goHome()">
+	<span class="middle-y logo-text"><h4>INDIAN <br>CREATIVE FORUM</h4></span>
+	<span ng-click="forum()" class="middle-y"><p class="btn btn-header2">Forum</p></span>
+	<span ng-click="kcenter()" class="middle-y"><p class="btn btn-header2">Knowledge Center</p></span>
+
+	<span ng-click="dashboard()" class="middle-y"><p class="btn btn-header2">Contract</p></span>
+	<span ng-click="dropdownMenu()" class="middle-y fa fa-gear"></span>
+
+	<div class="dropdownMenu">
+		<ul>
+			<li ng-click="profile()"><p>Profile</p></li>
+			<li ng-click="logout()"><p>Logout</p></li>
+		</ul>
+	</div>
+
+</header>
+<div class="container container-audit" ng-show="validData">
+	<div class="title-box" style="font-family: 'Roboto'">
+		<h2>AUDIT TRAIL</h2><br>
+		<div class="innerDiv">
+			ID         <br>
+			Freelancer <br>
+			Client     <br>
+			Status     <br>
+		</div>
+			:  &nbsp;&nbsp;{{contractId}}   <br>
+			:  &nbsp;&nbsp;{{freelancer}}   <br>
+			:  &nbsp;&nbsp;{{client}}       <br>
+			:  &nbsp;&nbsp;{{status}}       <br>
+	</div>
+	<br><br><br><br>
+		<h3 class="dochead">Document History:<h3> 
+		<br> <br>
+		<div class="text-box">
+			<p>
+			Made 			  : By {{offerer}} on {{contractDate}} <br>
+				   			    IP : {{ipMade}}
+			</p>
+		</div>
+		<div class="text-box" ng-show = "isSigned">
+			<p>
+			Signed (offerer)  : By {{offerer}} ( {{offererEmail}} ) to {{acceptor}} ( {{acceptorEmail}} ) on {{offererSignatureDate}}
+							    IP : {{offererIP}}  
+			</p>
+		</div>
+		<div class="text-box"  ng-show = "isViewed">
+			<p>
+			Viewed (acceptor)  : By {{acceptor}} on {{viewDate}}
+							    IP : {{viewIP}}  
+			</p>
+		</div>
+		<div class="text-box" ng-show = "isAccepted">
+			<p>
+			Signed (acceptor)  : By {{acceptor}} on {{acceptorSignatureDate}}
+							    IP : {{acceptorIP}}  
+			</p>
+		</div>
+		<div class="text-box">
+			<p>
+			Contract Accepted  : {{contractStatus}} {{contractAcceptDate}}
+			</p>
+		</div>
+	<br>
+</div>

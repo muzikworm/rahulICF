@@ -1,0 +1,112 @@
+<div class="kc-jumbotron-card kc-jumbotron-card-2">
+	<div class="info middle">
+		<div class="info-left">
+			<img src="img/Patent.png">
+		</div>
+		<div class="info-right">
+			<h1><span>Patent</span> Your Invention</h1>
+			<p>There’s no sure key to success, yet when working on a business,<br> there are a few hacks to accelerate your climb.</p>	
+		</div>
+	</div>
+</div>
+	
+<div class="kcenter-step-bottom">
+	<div class="content">
+		<div class="content-left">
+			<div class="side-menu">
+				<p><a href="knowledgeCenter/copyright_your_work"><span>Copyright</span> Your Work</a></p>
+				<p><a href="knowledgeCenter/patent_your_invention" class="active"><span>Patent</span> Your Invention</a></p>
+				<p><a href="knowledgeCenter/trademark_your_brand"><span>Trademark</span> Your Brand</a></p>
+				<p><a href="knowledgeCenter/prevention_and_cure"><span>Prevention</span> And Cure</a></p>
+			</div>
+		</div>
+		<div class="content-right">
+			<p>While a copyright is created automatically on an original work, patents have to be applied for. A patent is granted for inventions that create a product or process with industrial application.</p>
+
+			<h3>Key Points</h3>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>01</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>It is extremely important to apply for patent before making the work public. Prior use makes the work inapplicable from being patented.</p>
+				</div>
+			</div>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>02</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>Literary, dramatic, musical, artistic works or any aesthetic creation are outside the bounds of patentable items as per law. However they can be protected through a copyright. This is so since to classify as a patent, the invention needs to be a significant improvement in the existing technology, and serve a clear utility purpose.</p>
+				</div>
+			</div>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>03</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>A patented work can be sold or distributed only with the consent of the patent owner. Any other use will result in an infringement.</p>
+				</div>
+			</div>
+
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>04</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>A patent application can be filed by anyone. However, you must be the original inventor of the work, the assignee or a legal representative. The easiest way to apply is online, or through a patent agent.</p>
+				</div>
+			</div>
+
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>05</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>You can easily apply for a patent online through the <a href="www.ipindia.nic.in">www.ipindia.nic.in</a>. After successful registration on the site, you will download the Client Software which includes all the forms to be submitted. A patent application cost is variable and can be between Rs. 30,000 to Rs. 60,000.</p>
+				</div>
+			</div>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>06</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>Post filling up the documents and putting a digital signature on them, you will upload the XML file online on the e-portal. A successful submission will generate an acknowledgement slip that will includes the patent application number.</p>
+				</div>
+			</div>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>07</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>On submission, the application goes through intensive rounds of scrutiny of the documents submitted along with the invention’s scientific relevance. A patent is granted when the application meets all these criteria.</p>
+				</div>
+			</div>
+		</div>
+
+		<p class="content-bottom-cta">Ready to <span>TRANXACT</span> ?</p>
+
+		<div class="content-bottom-share-icons">
+			<div class="share-icons">
+				<span class='st_facebook_large' displayText='Facebook'></span>
+				<span class='st_twitter_large' displayText='Tweet'></span>
+				<span class='st_linkedin_large' displayText='LinkedIn'></span>
+				<span class='st_email_large' displayText='Email'></span>
+			</div>
+		</div>
+
+		<p class="content-bottom-feedback">Feel something is missing? <span ng-click="togglePopup()">Fill in the feedback here.</span></p>
+	</div>
+</div>
+
+<div class="feedback-popup middle" style="position:fixed;">
+	<i class="fa fa-times form-close" aria-hidden="true" ng-click="togglePopup()"></i>
+	<h3>Hi, {{username}},<br> Please share your valuable feedback!</h3>
+	<form method="POST" ng-submit="feedback()" class="form form-feedback">
+		<textarea placeholder="write feedback here..." ng-model="feedbackmsg"></textarea>
+		<input type="submit" value="Submit">
+	</form>
+</div>
+
+
+<div ng-include="'templates/footer.html'"></div>

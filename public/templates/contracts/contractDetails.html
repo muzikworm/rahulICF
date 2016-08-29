@@ -1,0 +1,133 @@
+	<div class="container">
+		<div ng-model="content" class="contract">
+			<form ng-submit="save()">
+			<h3>GENERAL FREELANCE AGREEMENT</h3> <br>
+	        <p>This Contract is made in  {{place}}, dated {{date | date:'yyyy-MM-dd'}}, by and between {{client}} {{cCompany}} {{cOwnership}} (the "Client") and {{freelancer}} {{fCompany}} {{fOwnership}} (the "Freelancer").</p>
+			<p>The Freelancer and the Client shall hereinafter be collectively referred as “Parties”, and individually as “Party”.</p>
+			
+			<ol>
+				<li>
+					<p><b>SCOPE OF WORK AND PAYMENT</b></p>
+						
+					<ol>
+						<li><p>Project. The Client is hiring the Freelancer to do the following: {{description}}.</p></li>
+						<li><p>Payment. The Client will pay the Freelancer flat fee/pro-rated charge of select currency. Of this, the Client will pay the Freelancer {{currency}} {{flatFee}} before the beginning of the project (“Advance Payment”) The Client will pay the remaining amount of {{currency}} {{flatFee - advancePayment}} post approving the final work product.</p></li>
+						<li><p>Expenses. <select ng-model="expense" ng-init="expense = expenses[0]" ng-options="option.option for option in expenses"></select>.</p></li>
+						<li><p>Invoices. The Freelancer will submit the invoice to the Client, post which the Client will disburse the payment to be received by the Freelancer within select {{duration}} days.</p></li>
+					</ol>
+
+				</li>
+
+				<li>
+					<p><b>OWNERSHIP AND LICENSES.</b></p>
+				
+					<ol>
+						<li>
+							<p>Client Owns All Work Product. The finished product, as well as drafts, notes, materials, scripts and anything else that the Freelancer works on (“work product”), is <span><select ng-model="ownership" ng-init="ownership = owner[0]" ng-options="type.option for type in owner"></select></span> once he pays for it in full. This includes all rights, titles, and interests in and to the work product (including intellectual property rights), is of the Client once the Client pays for it in full.</p>
+						</li>
+						<li>
+							<p>Freelancer’s Use Of Work Product. The Client gives the Freelancer permission to use the work product as part of the Freelancer’s portfolio and websites, in galleries, and in other media, so long as it is not to sell or otherwise use the work product to make money or for any other commercial use.</p>
+						</li>
+					</ol>
+				</li>
+
+				<li>
+					<p><b>REPRESENTATIONS.</b></p>
+
+					<ol>
+						<li>
+							<p>Authority To Sign. Each party promises to the other party that it has the authority to enter into this Contract and to perform all of its obligations under this Contract.</p>
+						</li>
+						<li>
+							<p>Client Will Review Work. The Client promises to be reasonably available to the Freelancer if the Freelancer has questions regarding this project, and to provide timely feedback and decisions.</p>
+						</li>
+					</ol>
+				</li>
+
+				<li>
+					<p><b>TERM. This Contract begin on {{startDate}} ends with the receiving of the final payment by the Freelancer from the Client.</b></p>
+				</li>
+
+				<li>
+					<p>
+						<b>TERMINATION <span><select ng-model="termination" ng-init="termination = terminator[0]" ng-options="option.option for option in terminator"></select></span> may end this Contract for any reason by sending an email or letter to the other party, informing the recipient that the sender is ending the Contract and that the Contract will end in <input type="Number" ng-init="terminationDays=7" ng-model="terminationDays" required>.</b>
+					</p>
+				</li>
+
+				<li>
+					<p><b>INDEPENDENT CONTRACTOR. The Client is hiring the Freelancer as an independent contractor. The Client and the Freelancer do not have a partnership or employer-employee relationship.</b></p>
+				</li>
+
+				<li>
+					<p><b>CONFIDENTIAL INFORMATION. While working for the Client, the Freelancer may come across, or be given, Client information that is confidential. The Freelancer promises that it will not share confidential information with a third party, unless the Client gives the Freelancer written permission first. This subsists even after the Contract ends.</b></p>
+				</li>
+
+				<li>
+					<p><b>INDEMNITY.</b></p>
+
+					<ol>
+						<li>
+							<p>Client Indemnity. In this Contract, the Freelancer <span><select ng-model="agreement" ng-init="agreement = choice[0]" ng-options="choice.option for choice in choice"></select></span> the Client (and its affiliates) from and against all liabilities, losses, damages, and expenses related to a third-party claim or proceeding arising out of the work the Freelancer has done under this Contract.</p>
+						</li>
+						<li>
+							<p>Freelancer Indemnity. In this Contract, the Client <span><select ng-model="agreement2" ng-init="agreement2 = choice[0]" ng-options="choice.option for choice in choice"></select></span> the Freelancer (and its affiliates) from and against liabilities, losses, damages, and expenses related to a third-party claim or proceeding arising out of a breach by the Client of its obligations under this Contract.</p>
+						</li>
+					</ol>
+				</li>
+
+				<li>
+					<p><b>GENERAL.</b></p>
+
+					<ol>
+						<li>
+							<p>Assignment. This Contract applies only to the Client and the Freelancer.</p>
+						</li>
+						<li>
+							<p>Arbitration. As the first step to resolve any dispute arising under this Contract, a party may demand that the dispute be resolved by arbitration administered by the Arbitration and Conciliation Act, 1996.</p>
+						</li>
+						<li>
+							<p>Modification, Waiver. To change, waive anything in this Contract, the Client and the Freelancer must agree to that change in writing and sign a document showing their contract.</p>
+						</li>
+						<li>
+							<p>Notices. A valid notice over the course of this contract must be in writing and delivered by email, delivered to the party’s address listed at the end of this Contract or to another address provided in writing to receive notice.</p>
+						</li>
+						<li>
+							<p>Governing Law. The laws of India govern the rights and obligations of the Client and the Freelancer under this Contract.</p>
+						</li>
+						<li>
+							<p>Entire Contract. This Contract represents the parties’ final and complete understanding of this job and the subject matter discussed in this Contract. This Contract supersedes all other contracts (both written and oral) between the parties. <br><br>
+							THE PARTIES HERETO AGREE TO THE FOREGOING AS EVIDENCED BY THEIR SIGNATURES BELOW.</p>
+						</li>
+					</ol>
+				</li>
+				<li>
+					<div class="addendum">
+						Addendum:<br><textarea ng-model="addendum" placeholder="Add any extra terms"></textarea>
+					</div><br>
+				</li>
+			</ol>
+
+		
+    	<div class="offererSignature">
+	    	<h3> <input type="text" ng-model="offererSignature" placeholder="Your Signature" ng-disabled required ><br>
+	    	    <span class="signature">{{offererSignature}}</span> 
+	    	</h3>
+	    	<span ng-show = "offererCompany != 'Null'">Company   : {{offererCompany}}<br></span>
+	    	Email Id  : {{offererEmail}}
+    		
+    	</div>
+    	<div class="acceptorSignature">
+	    	<h3> <input type="text" ng-model="acceptorSignature" placeholder="Acceptor's Signature" ng-disabled=true required ><br>
+	    	 	<span class="signature">{{acceptorSignature}}</span> 
+	    	</h3>
+	    	<span ng-show = "acceptorCompany != 'Null'">Company   : {{acceptorCompany}}<br> </span>
+	    	Email Id  : <input type="text" ng-model="acceptorEmail" placeholder="Acceptor's Email" required>
+    		
+    	</div>
+		<button class="btn" type="submit" ng-disabled="userType != 'Creative' && userType != 'Hiring a creative'">Save &amp; View</button>
+		<span ng-show="userType != 'Creative' && userType != 'Hiring a creative'" style="color:red;a: text-decoration:none">
+			<a href="#" ng-click="redirect()">Data Values Empty. Fill The Contract Again.</a>
+		</span>
+		</form>
+		</div>
+	</div>

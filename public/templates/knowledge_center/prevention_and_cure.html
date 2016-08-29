@@ -1,0 +1,113 @@
+<div class="kc-jumbotron-card kc-jumbotron-card-2">
+	<div class="info middle">
+		<div class="info-left">
+			<img src="img/Protection.png">
+		</div>
+		<div class="info-right">
+			<h1><span>Prevention</span> And Cure</h1>
+			<p>There’s no sure key to success, yet when working on a business,<br> there are a few hacks to accelerate your climb.</p>	
+		</div>
+	</div>
+</div>
+	
+<div class="kcenter-step-bottom">
+	<div class="content">
+		<div class="content-left">
+			<div class="side-menu">
+				<p><a href="knowledgeCenter/copyright_your_work"><span>Copyright</span> Your Work</a></p>
+				<p><a href="knowledgeCenter/patent_your_invention"><span>Patent</span> Your Invention</a></p>
+				<p><a href="knowledgeCenter/trademark_your_brand"><span>Trademark</span> Your Brand</a></p>
+				<p><a href="knowledgeCenter/prevention_and_cure" class="active"><span>Prevention</span> And Cure</a></p>
+			</div>
+			
+		</div>
+		<div class="content-right">
+			<p>Uncredited copying, distribution and use of creative works is fairly common. Here’s what you can do to prevent and counter it.</p>
+
+			<h3>Key Points</h3>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>01</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>Specifying ownership of Intellectual Property Rights (IPR) while making a contract is a great start. For commissioned works, IPR belongs to the contractor, unless a written agreement states otherwise. In case of an infringement, a registered copyright is easier to enforce.</p>
+				</div>
+			</div>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>02</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>While the creator of a work is also its first owner, an agreement allows you to define the extent to which another person can reproduce your work. This includes giving a licensed access.</p>
+				</div>
+			</div>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>03</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>Placing a watermark is a handy tool for putting a definite copyright claim on a work, and can be incorporated easily by anyone. However, you may want to check on the aesthetics of incorporating a watermark over your work.</p>
+				</div>
+			</div>
+
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>04</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>If your work has been replicated illegally, take a picture, and have multiple printouts which should indicate the date on record. This will be helpful in backing your claim against infringement.</p>
+				</div>
+			</div>
+
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>05</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>For online reproduction, begin by finding out the person responsible for the post. Contact the content publisher and site owner, and depending on what you seek, give them time to take the work done or give you credits for it.</p>
+				</div>
+			</div>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>06</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>A more formal approach can be taken by sending a notice. While a legal notice can be drafted and sent via a lawyer, even an individual can send one. While drafting a notice, ensure that you address it to the right person and mention the cause of your action. Give them a reasonable time to act on your concern, and send the notice by post or e-mail.</p>
+				</div>
+			</div>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>07</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>When there is no positive response, get in touch with an IPR lawyer and pursue legal action against the defaulter.</p>
+				</div>
+			</div>
+		</div>
+
+		<p class="content-bottom-cta">Ready to <span>TRANXACT</span> ?</p>
+
+		<div class="content-bottom-share-icons">
+			<div class="share-icons">
+				<span class='st_facebook_large' displayText='Facebook'></span>
+				<span class='st_twitter_large' displayText='Tweet'></span>
+				<span class='st_linkedin_large' displayText='LinkedIn'></span>
+				<span class='st_email_large' displayText='Email'></span>
+			</div>
+		</div>
+
+		<p class="content-bottom-feedback">Feel something is missing? <span ng-click="togglePopup()">Fill in the feedback here.</span></p>
+	</div>
+</div>
+
+<div class="feedback-popup middle" style="position:fixed;">
+	<i class="fa fa-times form-close" aria-hidden="true" ng-click="togglePopup()"></i>
+	<h3>Hi, {{username}},<br> Please share your valuable feedback!</h3>
+	<form method="POST" ng-submit="feedback()" class="form form-feedback">
+		<textarea placeholder="write feedback here..." ng-model="feedbackmsg"></textarea>
+		<input type="submit" value="Submit">
+	</form>
+</div>
+
+
+<div ng-include="'templates/footer.html'"></div>

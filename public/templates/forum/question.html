@@ -1,0 +1,105 @@
+<div class="f-jumbotron">
+	<div ng-include="'templates/header_sec.html'"></div>
+	<div class="forum-header middle">
+		<form method="POST" class="forum-search">
+			<input type="text" name="" ng-model="searchString" ng-keydown="showForumResult(searchString)" placeholder="search here...">
+			<button class="btn"><i class="fa fa-search"></i></button>
+		</form>
+		<p class="btn forum-add-question" ng-click="addQueryPopup()">Add Query</p>
+	</div>
+
+</div>
+
+<div class="container">
+
+	<div class="forum-search-result">
+		<ul class="data-ctrl">
+            <li ng-repeat="x in questions | searchFor:searchString">
+                <p ng-click="questionSingle(x._id, x.title)">{{x.title}}
+            </li>
+        </ul>
+	</div>
+
+	<div class="question-single-view">
+		<div class="question-single-block">
+			<h4>{{questionData.title}}</h4>
+			<p><img ng-src="/uploads/user/{{questionData.askedbyEmail}}.jpg" src="/img/user.png"><span>{{questionData.askedby}}</span> <span>{{questionData.date | date}}</span></p>
+			 <!-- <span><i ng-click="vote(questionData._id, 'upvote')" class="fa fa-thumbs-up"></i> <b>({{questionData.upvotedBy.length}})</b> <i ng-click="vote(questionData._id, 'downvote')" class="fa fa-thumbs-down"></i> <b>({{questionData.downvotedBy.length}})</b></span> -->
+			<h5>{{questionData.question}}</h5>
+			<div class="upvote-downvote">
+				<span ng-click="vote(questionData._id, 'upvote')" class="btn btn-vote-up">Upvote ({{questionData.upvotedBy.length}})</span><span ng-click="vote(questionData._id, 'downvote')" class="btn btn-vote-down">Downvote ({{questionData.downvotedBy.length}})</span>
+			</div>
+		</div>
+		<div>
+	 		<form ng-submit="writeAnswer(questionData._id)">
+				<textarea ng-model="answerField" placeholder="write your answer here..." required></textarea>
+				<input type="submit" value="Answer">
+			</form>
+		</div>
+
+		<h4>Answers ({{answers.length}})</h4>
+
+		<div ng-repeat="x in answers" class="answer-info">
+			<p><img ng-src="uploads/user/{{x.answerByEmail}}.jpg" src="/img/user.png"><span>{{x.answerBy}}</span></p>
+			<p>{{x.date | date}}</p>
+			<p>{{x.answer}} <i class="fa fa-trash delete-ans" ng-show="cannotdelete" ng-click="deleteAnswer(x._id)"></i></p>
+			<div class="upvote-downvote">
+				<i ng-click="voteAns(x._id, 'upvote')" class="flaticon-chevron-arrow-up" title="upvote"></i> <span>{{x.upvotedBy.length}}</span>
+				<i ng-click="voteAns(x._id, 'downvote')" class="flaticon-chevron-arrow-down" title="downvote"></i> <span>{{x.downvotedBy.length}}</span>
+			</div>
+		</div>
+		
+	</div>
+
+	<div class="question-single-view-sidebar">
+		<h4>Latest Questions</h4>
+		<p ng-repeat="x in questions" ng-click="questionSingle(x._id, x.title)">
+			{{x.title}}
+		</p>
+	</div>
+</div>
+
+<div class="add-query-popup">
+	<div class="popup-layer">
+		<form method="POST" ng-submit="addQuery()" class="forum-add-question-view">
+			<input type="text" ng-keydown="limitChar(questionTitle)" ng-model="questionTitle" placeholder="Question title"><br>
+			<p class="limit-error" style="color:red;">Title Limit Reached (Max. 100 Characters allowed)</p>
+			<textarea ng-model="questionDetail" placeholder="description..."></textarea><br>
+			<div class="form-group">
+				<label><p>Industry Practices</p></label>
+				<input type="checkbox" ng-model="questionCategory[0].value">
+			</div>
+			<div class="form-group"> 
+			<label><p>Payment</p></label>
+				<input type="checkbox" ng-model="questionCategory[1].value">
+			</div>
+			<div class="form-group">
+				<label><p>Process</p></label>
+				<input type="checkbox" ng-model="questionCategory[2].value">
+			</div>
+			<div class="form-group">
+				<label><p>Review</p></label>
+				<input type="checkbox" ng-model="questionCategory[3].value">
+			</div>
+			<div class="form-group">
+				<label><p>Legal</p></label>
+				<input type="checkbox" ng-model="questionCategory[4].value">
+			</div>
+			<div class="form-group">
+				<label><p>IPR</p></label>
+				<input type="checkbox" ng-model="questionCategory[5].value">
+			</div>
+			<div class="form-group">
+				<label><p>Copyright</p></label>
+				<input type="checkbox" ng-model="questionCategory[6].value">
+			</div>
+			<div class="form-group">
+				<label><p>Collaboration</p></label>
+				<input type="checkbox" ng-model="questionCategory[7].value">
+			</div>
+			<input type="submit" value="Submit" class="btn">	
+			<input type="button" ng-click="addQueryPopup()" value="Cancel" class="btn">	
+		</form>
+	</div>
+</div>		
+<div ng-include="'templates/footer.html'"></div>

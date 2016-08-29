@@ -1,0 +1,122 @@
+<div class="kc-jumbotron-card kc-jumbotron-card-2">
+	<div class="info middle">
+		<div class="info-left">
+			<img src="/img/copyrights.png">
+		</div>
+		<div class="info-right">
+			<h1><span>Copyright</span> Your Work</h1>
+			<p>There’s no sure key to success, yet when working on a business,<br> there are a few hacks to accelerate your climb.</p>	
+		</div>
+	</div>
+</div>
+	
+<div class="kcenter-step-bottom">
+	<div class="content">
+		<div class="content-left">
+			<div class="side-menu">
+				<p><a href="knowledgeCenter/copyright_your_work" class="active"><span>Copyright</span> Your Work</a></p>
+				<p><a href="knowledgeCenter/patent_your_invention"><span>Patent</span> Your Invention</a></p>
+				<p><a href="knowledgeCenter/trademark_your_brand"><span>Trademark</span> Your Brand</a></p>
+				<p><a href="knowledgeCenter/prevention_and_cure"><span>Prevention</span> And Cure</a></p>
+				
+			</div>
+			
+		</div>
+		<div class="content-right">
+			<p>Your creative work is your intellectual property, and understandably, holds significant value. While you are the natural owner of your original work, having a copyright is an advantage in legal enforcement and ensures your work remains yours.</p>
+
+			<h3>Key Points</h3>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>01</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>The creator of a work is its automatic owner as well, implying that the intellectual property rights (IPR) are held by the creator. Absence of a written copyright does not make the work liable for copying. The moment an original work comes to form, copyright is automatically created in the creator/commissioner.</p>
+				</div>
+			</div>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>02</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>It is not mandatory to register your work to have an ownership on it. However, a copyright registration is useful evidence in instances of infringement.</p>
+				</div>
+			</div>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>03</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>Under Indian laws, copyright exists in original literary, dramatic, musical and artistic works, this includes computer programmes, which are treated as “literary work”.</p>
+				</div>
+			</div>
+
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>04</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>When working on a commissioned project, the client/ commissioner becomes the IPR holder. If an artist plans to keep the IPR, then it has to be explicitly mentioned in an agreement.</p>
+				</div>
+			</div>
+
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>05</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>Working on a collaborative work, IPR-related interests can become a source of conflict. In absence of an agreement, the rights and interests arising from the work get distributed equally among the collaborators, meaning that royalties and other monetary benefits from the work are divided in the same proportion as well.</p>
+				</div>
+			</div>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>06</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>The process for registering a copyright in India has been made fairly simple with the e-filing facility. Log on to <a href="www.copyright.gov.in">www.copyright.gov.in</a>, fill up Form IV, and make the necessary payment online. The application charge is around Rs. 5,000 per work.</p>
+				</div>
+			</div>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>07</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>After submitting the application, you are given a diary number post which there is a wait period of 30 days. This buffer period is used to hear any objection or discrepancy regarding your application. After this period is exhausted, it takes about 2 to 3 months for the final registration.</p>
+				</div>
+			</div>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>08</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>If any part of the procedure sounds complicated, you can easily get your copyright filed through a certified agent online or through an advocate.</p>
+				</div>
+			</div>
+		</div>
+
+		<p class="content-bottom-cta">Ready to <span>TRANXACT</span> ?</p>
+
+		<div class="content-bottom-share-icons">
+			<div class="share-icons">
+				<span class='st_facebook_large' displayText='Facebook'></span>
+				<span class='st_twitter_large' displayText='Tweet'></span>
+				<span class='st_linkedin_large' displayText='LinkedIn'></span>
+				<span class='st_email_large' displayText='Email'></span>
+			</div>
+		</div>
+
+		<p class="content-bottom-feedback">Feel something is missing? <span ng-click="togglePopup()">Fill in the feedback here.</span></p>
+	</div>
+</div>
+
+<div class="feedback-popup middle" style="position:fixed;">
+	<i class="fa fa-times form-close" aria-hidden="true" ng-click="togglePopup()"></i>
+	<h3>Hi, {{username}},<br> Please share your valuable feedback!</h3>
+	<form method="POST" ng-submit="feedback()" class="form form-feedback">
+		<textarea placeholder="write feedback here..." ng-model="feedbackmsg"></textarea>
+		<input type="submit" value="Submit">
+	</form>
+</div>
+
+
+<div ng-include="'templates/footer.html'"></div>

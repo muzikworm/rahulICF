@@ -1,0 +1,175 @@
+	<header class="header">
+		<img src="../img/logo.png" alt="" class="logo middle-y" ng-click="goHome()">
+		<span class="middle-y logo-text"><h4>INDIAN <br>CREATIVE FORUM</h4></span>
+		<span ng-click="forum()" class="middle-y"><p class="btn btn-header2">Forum</p></span>
+		<span ng-click="kcenter()" class="middle-y"><p class="btn btn-header2">Knowledge Center</p></span>
+
+		<span ng-click="dashboard()" class="middle-y"><p class="btn btn-header2">Contract</p></span>
+		<span ng-click="dropdownMenu()" class="middle-y fa fa-gear"></span>
+
+		<div class="dropdownMenu">
+			<ul>
+				<li ng-click="profile()"><p>Profile</p></li>
+				<li ng-click="logout()"><p>Logout</p></li>
+			</ul>
+		</div>
+
+	</header>
+
+ <div class="container" >
+	<div ng-model="contract"  >
+		<div class="profilePic" >  <!-- Logo branding -->
+			<img check-image ng-src = {{imgUrl}} width="100" height="100" ng-show="brandingToggle" />
+			<form id        =  "uploadForm"
+			     enctype   =  "multipart/form-data"
+			     ng-submit = "uploadFile()"
+			     method    =  "post"
+			>	
+				<input type="file" file-model="userPhoto" change-func = "uploadFile" id="profile-pic"/>
+				<label for="profile-pic"><p>Add Branding</p></label>
+				<input type="submit" value="Upload Image" name="submit" ng-show = 'false'  />
+			</form>
+		</div>
+		<div class="contract">
+			<div id="pdf">
+				
+				<h3>GENERAL FREELANCE AGREEMENT</h3> 
+		        <p>This Contract is made in  {{place}}, dated {{date | date:'yyyy-MM-dd'}}, by and between {{client}} {{cCompany}} {{cOwnership}} (the "Client") and {{freelancer}}, {{fCompany}} {{fOwnership}} (the "Freelancer").</p> 
+				<p>The Freelancer and the Client shall hereinafter be collectively referred as “Parties”, and individually as “Party”.</p>
+				<ol>
+					<li>
+						<br>
+						<p><b>1. SCOPE OF WORK AND PAYMENT</b></p>
+						<br>
+						<ol>
+							<li>
+								<p>1.1 Project. The Client is hiring the Freelancer to do the following: {{description}}.</p>
+							</li>
+							<li>
+								<p>1.2 Payment. The Client will pay the Freelancer flat fee/pro-rated charge of select currency. Of this, the Client will pay the Freelancer {{currency}} {{flatFee}} before the beginning of the project (“Advance Payment”) The Client will pay the remaining amount of {{currency}} {{flatFee - advancePayment}} post approving the final work product.</p>
+							</li>
+							<li>
+								<p>1.3 Expenses. {{expenses}}.</p>
+							</li>
+							<li>
+								<p>1.4 Invoices. The Freelancer will submit the invoice to the Client, post which the Client will disburse the payment to be received by the Freelancer within {{duration}} days.</p>
+							</li>
+						</ol>
+					</li>
+
+					<li>
+						<br>
+						<p><b>2. OWNERSHIP AND LICENSES.</b></p>
+						<br>
+						<ol>
+							<li>
+								<p>2.1 Client Owns All Work Product. The finished product, as well as drafts, notes, materials, scripts and anything else that the Freelancer works on (“work product”), is {{ownership}} once he pays for it in full. This includes all rights, titles, and interests in and to the work product (including intellectual property rights), is of the Client once the Client pays for it in full.</p>
+							</li>
+							<li>
+								<p>2.2 Freelancer’s Use Of Work Product. The Client gives the Freelancer permission to use the work product as part of the Freelancer’s portfolio and websites, in galleries, and in other media, so long as it is not to sell or otherwise use the work product to make money or for any other commercial use.</p>
+							</li>
+						</ol>
+					</li>
+
+					<li>
+						<br>
+						<p><b>3. REPRESENTATIONS.</b></p>
+						<br>
+						<ol>
+							<li>
+								<p>3.1 Authority To Sign. Each party promises to the other party that it has the authority to enter into this Contract and to perform all of its obligations under this Contract.</p>
+							</li>
+							<li>
+								<p>3.2 Client Will Review Work. The Client promises to be reasonably available to the Freelancer if the Freelancer has questions regarding this project, and to provide timely feedback and decisions.</p>
+							</li>
+						</ol>
+					</li>
+
+					<li>
+						<p><b>4. TERM. This Contract begins on {{startDate}} ends with the receiving of the final payment by the Freelancer from the Client.</b></p>
+					</li>
+					<li>
+						<p><b>5. TERMINATION {{termination}} may end this Contract for any reason by sending an email or letter to the other party, informing the recipient that the sender is ending the Contract and that the Contract will end in {{terminationDays}}.</b></p>
+					</li>
+
+					<li>
+						<p><b>6. INDEPENDENT CONTRACTOR. The Client is hiring the Freelancer as an independent contractor. The Client and the Freelancer do not have a partnership or employer-employee relationship.</b></p>
+					</li>
+					<li>
+						<p><b>7. CONFIDENTIAL INFORMATION. While working for the Client, the Freelancer may come across, or be given, Client information that is confidential. The Freelancer promises that it will not share confidential information with a third party, unless the Client gives the Freelancer written permission first. This subsists even after the Contract ends.</b></p>
+					</li>
+
+					<li>
+						<br>
+						<p><b>8. INDEMNITY.</b></p>
+						<br>
+						<ol>
+							<li>
+								<p>8.1 Client Indemnity. In this Contract, the Freelancer {{agreement}} the Client (and its affiliates) from and against all liabilities, losses, damages, and expenses related to a third-party claim or proceeding arising out of the work the Freelancer has done under this Contract.</p>
+							</li>
+							<li>
+								<p>8.2 Freelancer Indemnity. In this Contract, the Client {{agreement2}} the Freelancer (and its affiliates) from and against liabilities, losses, damages, and expenses related to a third-party claim or proceeding arising out of a breach by the Client of its obligations under this Contract.</p>
+							</li>
+						</ol>
+					</li>
+
+					<li>
+						<br>
+						<p><b>9. GENERAL.</b></p>
+						<br>
+						<ol>
+							<li>
+								<p>9.1 Assignment. This Contract applies only to the Client and the Freelancer.</p>
+							</li>
+							<li>
+								<p>9.2 Arbitration. As the first step to resolve any dispute arising under this Contract, a party may demand that the dispute be resolved by arbitration administered by the Arbitration and Conciliation Act, 1996.</p>
+							</li>
+							<li>
+								<p>9.3 Modification, Waiver. To change, waive anything in this Contract, the Client and the Freelancer must agree to that change in writing and sign a document showing their contract.</p>
+							</li>
+							<li>
+								<p>9.4 Notices. A valid notice over the course of this contract must be in writing and delivered by email, delivered to the party’s address listed at the end of this Contract or to another address provided in writing to receive notice.</p>
+							</li>
+							<li>
+								<p>9.5 Governing Law. The laws of India govern the rights and obligations of the Client and the Freelancer under this Contract.</p>
+							</li>
+							<li>
+								<p>9.6 Entire Contract. This Contract represents the parties’ final and complete understanding of this job and the subject matter discussed in this Contract. This Contract supersedes all other contracts (both written and oral) between the parties.</p>
+							</li>
+						</ol>
+					</li>
+					<li ng-if="addendum != undefined">
+						<p><b>ADDENDUM.</b></p>
+						<p>{{addendum}}</p>
+					</li>
+				</ol>
+				
+				<p><b> PARTIES HERETO AGREE TO THE FOREGOING AS EVIDENCED BY THEIR SIGNATURES BELOW.</b></p> 
+				<div class="offererSignature">
+			    	 <p>Offerer : </p>
+			    	 <h3><span class="signature">{{offererSignature}} </span>
+			    	 </h3>
+			    	 <span ng-show = "offererCompany != 'Null'">Company   : {{offererCompany}} </span>
+			    	 <p>Email Id : {{offererEmail}}</p>
+			    	 <p>Signed On : {{offererSignatureDate | date : 'short'}}</p>
+		    	</div>
+		    	
+		    	<p>Acceptor : </p> 
+		    	<div class="freelanceSignature">
+			    	<h3> <span class="signature"> {{acceptorSignature}} </span></h3>
+			    	<span ng-show = "acceptorCompany != 'Null'">Company   : {{acceptorCompany}} </span>
+		    		<p>Email Id : {{acceptorEmail}}</p>
+					<p>Signed On: {{acceptorSignatureDate | date : 'short'}}</p>    		
+		    	</div>
+		    	 
+				<div style="text-align: center">
+			    	<button type="submit" class = "btn" ng-click="savePdf()">Download PDF</button>
+					<button type="submit" class = "btn" ng-click="invoice()">Generate Invoice</button>
+					<button type="submit" class = "btn" ng-click="mail()">Mail it for signature</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+

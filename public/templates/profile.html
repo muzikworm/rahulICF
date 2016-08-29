@@ -1,0 +1,129 @@
+<div class="profile-upper" style="background-image:url('{{imgurl}}');-webkit-filter: blur(3px);">
+	<div class="profile-upper-curtain">
+		
+	</div>
+</div>
+
+<div class="profilePic">
+	<img class="profile-image" src ="{{imgurl}}">
+	<div class="profile-image-after"></div>
+	<form id        =  "uploadForm"
+	     enctype   =  "multipart/form-data"
+	     ng-submit = "uploadFile()"
+	     method    =  "post"
+	ng-if="!loggedOut">	
+		<input type="file" file-model="userPhoto" change-func = "uploadFile" id="profile-pic"/>
+		<label class="upload-label" for="profile-pic"><p></p><i class="fa fa-edit"></i></label>
+		<input type="submit" value="Upload Image" name="submit" ng-show = 'false'  />
+	</form>
+	<p class="profile-upper-name">{{fullName}} <i ng-model="isVerified" ng-if="isVerified" class="fa fa-check-circle-o" title="Verified User"></i></p></p>
+	<p class="profile-upper-email">{{fullEmail}}</p>
+
+</div>
+
+<div class="container">
+
+	<div class="profile-bottom" ng-show="!loggedOut">
+		<div class="profile-tabs">
+			<div class="tabs-group">
+				<h4 ng-click="profileTab1()" class="profile-tab1">My Profile</h4>
+				<h4 ng-click="profileTab2()" class="profile-tab2">Forum</h4>
+			</div>
+
+			<!-- <p style="float:right;cursor:pointer;color:#14646d;font-weight:500;" class="edit-btn">Edit <i class="fa fa-edit"></i></p> -->
+		</div>
+		<p style="text-align: center;font-weight: 500;margin: 40px 0 20px 0;">*All this information is safe, secure & private.</p>
+		<p style="text-align: center;font-weight: 500;margin: 0 0 20px 0;">(Double click to edit)</p>
+		<div class="profile-tab1-view">
+
+			<form class="" name = "profileForm" id= "uploadForm"
+			     enctype = "multipart/form-data" method = "POST" ng-submit ="saveProfile()">
+
+				
+				<div class="profile-tab1-view">
+					<div class="bio">
+						<h5>About me</h5>
+						<textarea ng-model="bio" placeholder="who am I?" required></textarea>
+					</div>
+					<div class="profile-view-left">
+						<div class="left">
+							<h5>Company Name</h5>
+							<h5>Secondary Email</h5>
+							<h5>Country</h5>
+							<h5>City</h5>
+							<!-- <h5>Default Logo</h5> -->
+						</div>
+
+						<div class="right">
+							<input type="text" ng-model="cname" placeholder="Company name" required>
+							<input type="email" ng-model="email" placeholder="email">  
+							<input type="text" ng-model="country" placeholder="country" required>
+							<input type="text" ng-model="city" placeholder="city" required>
+						</div>
+					</div>
+
+					<div class="profile-view-right">
+						<div class="left">
+							 <h5>Title</h5>
+							 <h5>VAT/TAX ID No.</h5>
+							 <h5>Currency</h5>
+							 <h5>No. Tranxactions</h5>
+							 <h5>Worth of tranxactions</h5>
+						</div>
+
+						<div class="right">
+							<input type="text" ng-model="title" placeholder="Your title" required>
+							<h5><span>Coming Soon</span></h5>
+							<h5><span>Coming Soon</span></h5>
+							<h5><span>Coming Soon</span></h5>
+							<h5><span>Coming Soon</span></h5>
+							<!-- <input type="text" ng-model="vatid" placeholder="VAT/TAX id no." required> -->
+							<!-- <input type="text" ng-model="currency" placeholder="currency" required> -->
+							<!-- <h5><span>{{tranCount}}</span></h5> -->
+							<!-- <h5><span>{{tranValue}}</span></h5> -->
+						</div>
+					</div>
+
+
+				    <input ng-model="password" type="password" placeholder="password" ng-change="checkpass()">
+					<input ng-model="cpass" type="password" placeholder="confirm password" ng-change="checkpass()">
+					<p ng-show="toggle">Passwords do not match</p>
+
+					<input type="submit" ng-disabled="toggle" value="save">
+
+				</div>
+			<!--     <input type="text" ng-model="fname" placeholder="first name">
+				<input type="text" ng-model="lname" placeholder="last name">
+			 -->	
+			</form>
+				
+		</div>
+		<div class="profile-tab2-view">
+			<div class="bio">
+				<h5>About me</h5>
+				<textarea ng-model="bio" placeholder="who am I?" required></textarea>
+			</div>
+			<div class="forum-data">
+				<h5>Questions: <span>{{QuestionsCount}}</span></h5>
+				<h5>Answers: <span>{{AnswersCount}}</span></h5>
+			</div>
+		</div>
+	</div>
+	<div class="profile-bottom" ng-show="loggedOut">
+		<h4 class="profile-private-tab">Forum</h4>
+		<div class="profile-private">
+			<div class="bio">
+				<h5>About me</h5>
+				<textarea ng-model="bio" placeholder="who am I?" required></textarea>
+			</div>
+			<div class="profile-private-data">
+				<h5>Questions: <span>{{QuestionsCount}}</span></h5>
+				<h5>Answers: <span>{{AnswersCount}}</span></h5>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+<div ng-include="'templates/footer.html'"></div>

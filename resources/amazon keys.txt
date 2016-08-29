@@ -1,0 +1,7 @@
+Access Key ID:
+AKIAJDDYDPSNRHNQQ5DA
+Secret Access Key:
+ug+t+GTH8A5SCGoawC+ZkptsMRVyuluQiCbOJVq5
+
+SendGrid key:
+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

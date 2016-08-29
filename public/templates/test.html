@@ -1,0 +1,30 @@
+<div class="container">
+	
+	<form class="form-666">
+		<div class="form-group">
+			<label for="a1"><p id="l1" class="focused">Field Name</p></label>
+			<input type="text" id="a1" data-index="1" class="focused">
+		</div>
+
+		<div class="form-group">
+			<label for="a2"><p  id="l2">Field Name</p></label>
+			<select id="a2" data-index="2">
+				<option><p>Option1</p></option>
+			</select>
+			<!-- <input type="text" id="a2" data-index="2"> -->
+		</div>
+
+		<div class="form-group">
+			<label for="a3"><p  id="l3">Field Name</p></label>
+			<input type="text" id="a3" data-index="3">
+		</div>
+
+	</form>
+
+</div>
+
+
+<form ng-submit="testForm()">
+	<input type="text" ng-model="testfield" placeholder="bla">
+	<input type="submit" value="Save">
+</form>

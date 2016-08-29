@@ -1,0 +1,130 @@
+<div class="kc-jumbotron-card kc-jumbotron-card-2">
+	<div class="info middle">
+		<div class="info-left">
+			<img src="img/Trademark.png">
+		</div>
+		<div class="info-right">
+			<h1><span>Trademark</span> Your Brand</h1>
+			<p>There’s no sure key to success, yet when working on a business,<br> there are a few hacks to accelerate your climb.</p>	
+		</div>
+	</div>
+</div>
+	
+<div class="kcenter-step-bottom">
+	<div class="content">
+		<div class="content-left">
+			<div class="side-menu">
+				<p><a href="knowledgeCenter/copyright_your_work"><span>Copyright</span> Your Work</a></p>
+				<p><a href="knowledgeCenter/patent_your_invention"><span>Patent</span> Your Invention</a></p>
+				<p><a href="knowledgeCenter/trademark_your_brand" class="active"><span>Trademark</span> Your Brand</a></p>
+				<p><a href="knowledgeCenter/prevention_and_cure"><span>Prevention</span> And Cure</a></p>
+			</div>
+		</div>
+		<div class="content-right">
+			<p>Creating a brand that people identify with is no small effort, and protecting your brand’s identity is therefore an imperative. A trademark registration allows you to protect your identity from counterfeits and prevents misuse.</p>
+
+			<h3>Key Points</h3>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>01</h5>
+					<p class="ex-text" ng-click="showEx1()">Ex</p>
+				</div>
+				<div class="keypoints-right">
+					<p>Trademarks can be applied for brand name, heading, domain name, logo, and tagline, among others.</p>
+					<p class="keypoint-ex keypoint-ex1">The fruit drink Frooti has a trademark on its name, as well as the tagline “Mango Frooti, Fresh and Juicy” which prevents others from using them together or individually.</p>					
+				</div>
+			</div>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>02</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>A trademark can be filed by anyone- an individual, a company, or even a government department. It is not required for the trademark to be already in use at the time of filing.</p>
+				</div>
+			</div>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>03</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>A trademark application can be filed online on ipindiaonline.gov.in or at the regional Trademarks Registry Office. You can collaborate with a filing agent to take care of your application. Most of them offer great service at cheap rates, especially via online platforms.</p>
+				</div>
+			</div>
+
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>04</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>Your first step to trademark registration involves looking up for names on <a href="http://ipindiaonline.gov.in/tmrpublicsearch/frmmain.aspx">http://ipindiaonline.gov.in/tmrpublicsearch/frmmain.aspx</a> to see if any match yours. If there are no exact or similar matches, then you are good to go to the next step which involves selecting your product category from a pre-defined list.</p>
+				</div>
+			</div>
+
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>05</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>The formal procedure begins with filling the online form, which comes with a one-time fee of Rs. 4,000 and submission of supporting documents. On successful submission, you are allotted a trademark application number. You can start using the ™ symbol with the receipt of this number itself.</p>
+				</div>
+			</div>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>06</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>Following the submission, the application is reviewed by the Trademarks Officer, and any objections are notified to you. You have the right to reply to these objections and support your claim.</p>
+				</div>
+			</div>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>07</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>Once satisfied, the application is opened up to external objections, post which the registration certificate is granted. You can start using the ® symbol!</p>
+				</div>
+			</div>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>08</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>From submission till the final issue of the registration certificate, the process takes about 15 to 18 months. However, you can start using the ™ symbol within 24 hours of successful acknowledgement of your application number.</p>
+				</div>
+			</div>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>09</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>The trademark filing process takes some time, but goes a long way in building a unique brand recognition, and prevents others to take advantage of your work.</p>
+				</div>
+			</div>
+		</div>
+
+		<p class="content-bottom-cta">Ready to <span>TRANXACT</span> ?</p>
+
+		<div class="content-bottom-share-icons">
+			<div class="share-icons">
+				<span class='st_facebook_large' displayText='Facebook'></span>
+				<span class='st_twitter_large' displayText='Tweet'></span>
+				<span class='st_linkedin_large' displayText='LinkedIn'></span>
+				<span class='st_email_large' displayText='Email'></span>
+			</div>
+		</div>
+
+		<p class="content-bottom-feedback">Feel something is missing? <span ng-click="togglePopup()">Fill in the feedback here.</span></p>
+	</div>
+</div>
+
+<div class="feedback-popup middle" style="position:fixed;">
+	<i class="fa fa-times form-close" aria-hidden="true" ng-click="togglePopup()"></i>
+	<h3>Hi, {{username}},<br> Please share your valuable feedback!</h3>
+	<form method="POST" ng-submit="feedback()" class="form form-feedback">
+		<textarea placeholder="write feedback here..." ng-model="feedbackmsg"></textarea>
+		<input type="submit" value="Submit">
+	</form>
+</div>
+
+
+<div ng-include="'templates/footer.html'"></div>

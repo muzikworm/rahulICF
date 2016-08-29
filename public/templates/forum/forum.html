@@ -1,0 +1,102 @@
+<div class="f-jumbotron">
+	<div ng-include="'templates/header_sec.html'"></div>
+	
+	<div class="forum-header middle">
+		<form method="POST" class="forum-search">
+			<input type="text" tabindex="1" name="" ng-model="searchString" ng-keydown="showForumResult(searchString)" placeholder="search here...">
+			<button class="btn"><i class="fa fa-search"></i></button>
+		</form>
+		<p class="btn forum-add-question" ng-click="addQueryPopup()" tabindex="2">Add Query</p>
+	</div>
+
+</div>
+
+
+<div class="container">
+	
+	<div class="clearfix"></div>
+
+	<p class="forum-categories"><b>Categories:</b> <span ng-click="allCategory()">All</span> <span ng-repeat="x in questionCategory" ng-click="gotoCategory(x.cat)">{{x.cat}}</span></p>
+
+	<div class="forum-search-result">
+		<ul class="data-ctrl">
+            <li ng-repeat="x in questions | searchFor:searchString">
+                <p ng-click="questionSingle(x._id, x.title)">{{x.title}}</p>
+            </li>
+        </ul>
+	</div>
+
+	<div class="add-query-popup">
+		<div class="popup-layer">
+			<form method="POST" ng-submit="addQuery()" class="forum-add-question-view">
+				<input type="text" ng-keydown="limitChar(questionTitle)" ng-model="questionTitle" placeholder="Question title" required><br>
+				<p class="limit-error" style="color:red;">Title Limit Reached (Max. 100 Characters allowed)</p>
+				<textarea ng-model="questionDetail" placeholder="description..." required></textarea><br>
+				<div class="form-group">
+					<label><p>Industry Practices</p></label>
+					<input type="checkbox" ng-model="questionCategory[0].value">
+				</div>
+				<div class="form-group"> 
+				<label><p>Payment</p></label>
+					<input type="checkbox" ng-model="questionCategory[1].value">
+				</div>
+				<div class="form-group">
+					<label><p>Process</p></label>
+					<input type="checkbox" ng-model="questionCategory[2].value">
+				</div>
+				<div class="form-group">
+					<label><p>Review</p></label>
+					<input type="checkbox" ng-model="questionCategory[3].value">
+				</div>
+				<div class="form-group">
+					<label><p>Legal</p></label>
+					<input type="checkbox" ng-model="questionCategory[4].value">
+				</div>
+				<div class="form-group">
+					<label><p>IPR</p></label>
+					<input type="checkbox" ng-model="questionCategory[5].value">
+				</div>
+				<div class="form-group">
+					<label><p>Copyright</p></label>
+					<input type="checkbox" ng-model="questionCategory[6].value">
+				</div>
+				<div class="form-group">
+					<label><p>Collaboration</p></label>
+					<input type="checkbox" ng-model="questionCategory[7].value">
+				</div>
+				<input type="submit" value="Submit" class="btn">	
+				<input type="button" ng-click="addQueryPopup()" value="Cancel" class="btn">	
+			</form>
+		</div>
+	</div>
+
+	<table class="forum-table">
+			<tr class="forum-table-header">
+				<th><p>Question</p></th>
+				<th><p>Asked By</p></th>
+				<th><p>Upvotes</p></th>
+				<th><p>Downvotes</p></th>
+				<th><p>Comments</p></th>
+			</tr>
+			<h3 ng-if="!catCheck" class="cat-heading">Category: All</h3>
+			<tr ng-if="questions.length!=0 && categories.length==undefined" ng-repeat="x in questions">
+				<td class="title-length"><h5 class="pointer" ng-click="questionSingle(x._id, x.title)">{{x.title}}</h5></td>
+				<td><h5 class="pointer" ng-click="profile(x.askedbyEmail)">{{x.askedby}}</h5></td>
+				<td><h5>{{x.upvotedBy.length}}</h5></td>
+				<td><h5>{{x.downvotedBy.length}}</h5></td>
+				<td><h5 ng-init="title(x.answers)">{{c[$index]}}</h5></td>
+			</tr>
+
+
+			<h3 ng-if="catCheck" class="cat-heading">Category: {{catName}}</h3>
+			<tr ng-if="questions.length!=0 && categories.length!=0" ng-repeat="x in categories">
+				<td class="title-length"><h5 class="pointer" ng-click="questionSingle(x._id, x.title)">{{x.title}}</h5></td>
+				<td><h5 class="pointer" ng-click="profile(x.askedby)">{{x.askedby}}</h5></td>
+				<td><h5>{{x.upvotedBy.length}}</h5></td>
+				<td><h5>{{x.downvotedBy.length}}</h5></td>
+				<td><h5 ng-init="title(x.answers)">{{c[$index]}}</h5></td>
+			</tr>
+		</table>
+</div>
+<div ng-include="'templates/footer.html'"></div>
+

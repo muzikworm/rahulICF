@@ -1,0 +1,90 @@
+<div class="kc-jumbotron-card kc-jumbotron-card-3">
+	<div class="info middle">
+		<div class="info-left">
+			<img src="img/work_time.jpeg">
+		</div>
+		<div class="info-right">
+			<h1><span>Preparing</span> For Pro League</h1>
+			<p>There’s no sure key to success, yet when working on a business,<br> there are a few hacks to accelerate your climb.</p>	
+		</div>
+	</div>
+</div>
+	
+<div class="kcenter-step-bottom">
+	<div class="content">
+		<div class="content-left">
+			<div class="side-menu">
+				<p><a href="knowledgeCenter/preparing_for_pro_league"><span>Preparing</span> For Pro League</a></p>
+				<p><a href="knowledgeCenter/contract_essentials"><span>Contract</span> Essentials</a></p>
+				<p><a href="knowledgeCenter/work_time" class="active"><span>Work</span> Time</a></p>
+				
+			</div>
+			
+		</div>
+		<div class="content-right">
+			<p>Getting your hands dirty while working on your next masterpiece is a thrill unparalleled. Make it even better by incorporating the best practices to deliver an even more impressive work.</p>
+
+			<h3>Key Points</h3>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>01</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>Never neglect the value of a well-researched project. Look up and around for inspiration and also to catch hold of latest trends.</p>
+				</div>
+			</div>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>02</h5>
+					<p class="ex-text" ng-click="showEx1()">Ex</p>
+				</div>
+				<div class="keypoints-right">
+					<p>A great way to reduce workload is by working with a strategy that breaks down the stages and ensures that you keep track of all the little aspects involved. Devise a strategy from the beginning and make sure to follow it as well.</p>
+					<p class="keypoint-ex keypoint-ex1">A great way to streamline work is by using applications such Trello, Figma and Asana. They allow you to set time-based progress charts which can be shared with the client as well.</p>
+				</div>
+			</div>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>03</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>As you proceed through the stages, engage the client as well, and make them a part of the team. Share the progress and seek feedback. It will also minimise iterations at a later stage.</p>
+				</div>
+			</div>
+
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>04</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>When using external references, keep in mind the possibility of copyrights or licenses on them. The last thing you want is the work to be marked as plagiarised.</p>
+				</div>
+			</div>
+		</div>
+
+		<p class="content-bottom-cta">Ready to <span>TRANXACT</span> ?</p>
+
+		<div class="content-bottom-share-icons">
+			<div class="share-icons">
+				<span class='st_facebook_large' displayText='Facebook'></span>
+				<span class='st_twitter_large' displayText='Tweet'></span>
+				<span class='st_linkedin_large' displayText='LinkedIn'></span>
+				<span class='st_email_large' displayText='Email'></span>
+			</div>
+		</div>
+
+		<p class="content-bottom-feedback">Feel something is missing? <span ng-click="togglePopup()">Fill in the feedback here.</span></p>
+	</div>
+</div>
+
+<div class="feedback-popup middle" style="position:fixed;">
+	<i class="fa fa-times form-close" aria-hidden="true" ng-click="togglePopup()"></i>
+	<h3>Hi, {{username}},<br> Please share your valuable feedback!</h3>
+	<form method="POST" ng-submit="feedback()" class="form form-feedback">
+		<textarea placeholder="write feedback here..." ng-model="feedbackmsg"></textarea>
+		<input type="submit" value="Submit">
+	</form>
+</div>
+
+
+<div ng-include="'templates/footer.html'"></div>

@@ -1,0 +1,97 @@
+<div class="kc-jumbotron-card kc-jumbotron-card-3">
+	<div class="info middle">
+		<div class="info-left">
+			<img src="img/pro_league.png">
+		</div>
+		<div class="info-right">
+			<h1><span>Preparing</span> For Pro League</h1>
+			<p>There’s no sure key to success, yet when working on a business,<br> there are a few hacks to accelerate your climb.</p>	
+		</div>
+	</div>
+</div>
+	
+<div class="kcenter-step-bottom">
+	<div class="content">
+		<div class="content-left">
+			<div class="side-menu">
+				<p><a href="knowledgeCenter/preparing_for_pro_league" class="active"><span>Preparing</span> For Pro League</a></p>
+				<p><a href="knowledgeCenter/contract_essentials"><span>Contract</span> Essentials</a></p>
+				<p><a href="knowledgeCenter/work_time"><span>Work</span> Time</a></p>
+				
+			</div>
+			
+		</div>
+		<div class="content-right">
+			<p>Taking a dip in the sea of professionals is no small feat. It brings with it a series of practices and rules that are not always obvious. We undertook the task to make the journey less rocky for you, and put together a list that will serve as your own lifeguard.</p>
+
+			<h3>Key Points</h3>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>01</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>The first step to entering the professional arena begins with putting together a portfolio with all your work experience, along with a summary resume. Also,you can maintain online portfolios on  platforms such as Behance,  DeviantArt, Dribble, and reach out to a larger audience.</p>
+				</div>
+			</div>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>02</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>A key aspect of getting a positive response to your portfolio lies in tweaking it to suit the client. Say, while applying to a sports magazine your writing samples should include sports-writing.</p>
+				</div>
+			</div>
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>03</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>Socializing is a great way to spread word and generate interest in your work. Do not hesitate to let your family, friends, and acquaintances know that you are starting out. It is most likely that your first few opportunities will come through them.</p>
+				</div>
+			</div>
+
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>04</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>Social media presence is important for reaching out to people. Develop online recognition by actively contributing to forums such as Quora, guest writing blogs, along with maintaining online portfolios.</p>
+				</div>
+			</div>
+
+			<div class="keypoints">
+				<div class="keypoints-left">
+					<h5>05</h5>
+				</div>
+				<div class="keypoints-right">
+					<p>Have a clear idea of your pricing. Structure it according to the various costs you will have while working, as well as the complexity of the work undertaken. As a rule, do not hesitate to negotiate if you feel the price does not match the project work.</p>
+				</div>
+			</div>
+		</div>
+
+		<p class="content-bottom-cta">Ready to <span>TRANXACT</span> ?</p>
+
+		<div class="content-bottom-share-icons">
+			<div class="share-icons">
+				<span class='st_facebook_large' displayText='Facebook'></span>
+				<span class='st_twitter_large' displayText='Tweet'></span>
+				<span class='st_linkedin_large' displayText='LinkedIn'></span>
+				<span class='st_email_large' displayText='Email'></span>
+			</div>
+		</div>
+
+		<p class="content-bottom-feedback">Feel something is missing? <span ng-click="togglePopup()">Fill in the feedback here.</span></p>
+	</div>
+</div>
+
+<div class="feedback-popup middle" style="position:fixed;">
+	<i class="fa fa-times form-close" aria-hidden="true" ng-click="togglePopup()"></i>
+	<h3>Hi, {{username}},<br> Please share your valuable feedback!</h3>
+	<form method="POST" ng-submit="feedback()" class="form form-feedback">
+		<textarea placeholder="write feedback here..." ng-model="feedbackmsg"></textarea>
+		<input type="submit" value="Submit">
+	</form>
+</div>
+
+
+<div ng-include="'templates/footer.html'"></div>
