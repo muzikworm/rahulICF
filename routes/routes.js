@@ -10,7 +10,7 @@ var signup = require('../controllers/signup'),
  module.exports = function(app){
 
  	app.post('/api/signup', signup.signup)
- 	app.get('/email_verify', signup.email_verify)
+ 	app.get('/email_verify/:confiramtion_code', signup.email_verify)
  	app.post('/api/login', signup.login)
 
  	app.post('/password_reset/:token', pwdReset.reset_pwd)

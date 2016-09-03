@@ -6,8 +6,12 @@ var sg = require('sendgrid').SendGrid('SG.HnsWAQEwRGak211OK4Q3Hg.DMzbRBcp0ZPXdie
    //var signup = mongoose.model('user',userSchema);
 exports.signup = function(req, res){
     req.body.confirmation_code = Math.random().toString(36).substring(7);
-   req.body.confirmed = 0;
-   var userData = new user(req.body);
+    req.body.confirmed = 0;
+    var userData = new user();
+    userData.fname = first_name;
+    userData.lname = last_name;
+    userData.password = userData.generateHash(password)
+    userData.createdDate = new Date();
 
    user.findOne({email: req.body.email}, function(err, result){
     if(result == null) {
@@ -40,18 +44,24 @@ exports.signup = function(req, res){
 
 //app.get('/email_verify/:confirmation_code', function(req, res){
 exports.email_verify = function(req, res){
-  
+    
   user.findOneAndUpdate({ confirmation_code: req.params.confirmation_code }, { 
       confirmation_code : "",
       confirmed : 1
       },function(err,result) {
-        console.log(result);
+        if(err)
+          console.log(err)
+        else{
+          res.send({state: 'success'})
+          console.log(result);
+        }
+        
       });  
 
-  res.sendFile(__dirname + '../public/index.html', function(err){
-    if(err) 
-      console.log(err);
-  });
+  // res.sendFile(__dirname + '../public/index.html', function(err){
+  //   if(err) 
+  //     console.log(err);
+  // });
 }
   
 //});
