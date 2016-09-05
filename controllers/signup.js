@@ -1,17 +1,20 @@
 var user = require('../models/user')
 var helper = require('sendgrid').mail
 var sg = require('sendgrid').SendGrid('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');
-
+var passport = require('./passport')
 //app.post('/api/signup', function (req, res) {
    //var signup = mongoose.model('user',userSchema);
 exports.signup = function(req, res){
-    req.body.confirmation_code = Math.random().toString(36).substring(7);
-    req.body.confirmed = 0;
-    var userData = new user();
-    userData.fname = first_name;
-    userData.lname = last_name;
-    userData.password = userData.generateHash(password)
+    // req.body.confirmation_code = Math.random().toString(36).substring(7);
+    // req.body.confirmed = 0;
+     var userData = new user();
+    userData.fname = req.body.fname;
+    userData.lname = req.body.lname;
+    userData.email = req.body.email;
+    userData.password = userData.generateHash(req.body.password)
     userData.createdDate = new Date();
+
+  
 
    user.findOne({email: req.body.email}, function(err, result){
     if(result == null) {
@@ -38,7 +41,7 @@ exports.signup = function(req, res){
     }
    });
 }  
-   
+
     
 //});
 
@@ -51,49 +54,43 @@ exports.email_verify = function(req, res){
       },function(err,result) {
         if(err)
           console.log(err)
-        else{
+        else if(result){
           res.send({state: 'success'})
           console.log(result);
-        }
+        } else
+          res.send({state: 'failure', message: 'wrong code'})
         
       });  
-
-  // res.sendFile(__dirname + '../public/index.html', function(err){
-  //   if(err) 
-  //     console.log(err);
-  // });
 }
   
-//});
-
-
-//app.post('/api/login', function(req,res){
 exports.login = function(req, res){
-  //var loginUser = mongoose.model('user', userSchema);
-  user.find({email: req.body.email},function(err, result){
-    if(err) throw err;
-    console.log(typeof result.length);
-    if(result.length !== 0){
-      //res.status(200).send({state: 'success', message: 'logged in successfully'});
-      res.end("success");
-      // bcrypt.compare(req.body.password, result.password, function(err, valid) {
-      //   if (!valid) {
-      //     res.end("failed")
-      //   }
-      //   else{
-      //     if(!result.confirmed) {
-      //       res.end("verify_email");
-      //     }
-      //     else {
-      //     res.end("success");
-      //     }
-      //   }
-      // });
-    }
-    else
-      res.status(401).send({state: 'failure', message: 'wrong credentials'})
-     // res.end("failed");
-  });
+
+  passport.authenticate('user-login' , function(err, user, info) {
+      if(err){
+        res.send(500, err)
+      }
+      if (user === false) {
+        // handle login error ...
+        res.json({state: 'failure', user: null, message: info});
+      } else {
+        // handle successful login ...
+        res.json({state: 'success', user: user || null, message: info});
+      }
+    })(req, res, next);
+
+  // user.findOne({email: req.body.email},
+  //   function(err, u){
+  //     if(err) throw err;
+  //     else if(u){
+  //       if(u.password == u.validPassword(req.body.password)){
+  //         res.status(200).send({state: 'success', message: 'logged in successfully'})
+  //       } else{
+  //         res.status(200).send({state: 'success', message: 'wrong password'})
+  //       }
+  //     }
+  //     else
+  //     res.status(401).send({state: 'failure', message: 'wrong credentials'})
+  //    // res.end("failed");
+  // });
 }
    
-//});
