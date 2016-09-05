@@ -12,6 +12,7 @@ exports.signup = function(req, res){
     userData.lname = req.body.lname;
     userData.email = req.body.email;
     userData.password = userData.generateHash(req.body.password)
+    userData.confirmation_code = Math.random().toString(36).substring(7);
     userData.createdDate = new Date();
 
   
