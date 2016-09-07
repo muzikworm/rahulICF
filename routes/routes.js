@@ -8,7 +8,10 @@ var signup = require('../controllers/signup'),
     admin = require('../controllers/admin'),
     passport = require('passport'),
 	requiresLogin = require('../controllers/requiresLogin'),
-	passportAuth0 = require('../config/passport-auth0');
+	passportAuth0 = require('../config/passport-auth0'),
+	cookieParser = require('cookie-parser'),
+	forum = require('../models/forum'),
+	answer = require('../models/answer');
  module.exports = function(app, passport){
 
  // 	var router = express.Router();
@@ -29,23 +32,23 @@ var signup = require('../controllers/signup'),
 	//     res.render('login', { env: env });
 	//   });
 
- 	app.get('/callback',
-	  passport.authenticate('auth0', { failureRedirect: '/failure' }),
-	  function(req, res) {
-	    if (!req.user) {
-	      throw new Error('user null');
-	    }
-	    res.send({state: 'success'})
-	    //res.redirect(__dirname + '../public/index.html');
-	 });
+ 	// app.get('/callback',
+	 //  passport.authenticate('auth0', { failureRedirect: '/failure' }),
+	 //  function(req, res) {
+	 //    if (!req.user) {
+	 //      throw new Error('user null');
+	 //    }
+	 //    res.send({state: 'success'})
+	 //    //res.redirect(__dirname + '../public/index.html');
+	 // });
 
- 	app.get('/failure', function(req, res){
- 		res.send({state: 'failure'})
- 	})
+ 	// app.get('/failure', function(req, res){
+ 	// 	res.send({state: 'failure'})
+ 	// })
 
  	 app.post('/api/signup', signup.signup)
- 	// app.post('/api/signup', function(req, res){
- 	// 	passport.authenticate('user-signup' , function(err, user, info) {
+ 	 // app.post('/api/signup', function(req, res){
+ 	 // 	passport.authenticate('user-signup' , function(err, user, info) {
 	 //      if(err){
 	 //        res.send(500, err)
 	 //      }
@@ -63,7 +66,7 @@ var signup = require('../controllers/signup'),
  	app.get('/email_verify/:confiramtion_code', signup.email_verify)
  	
  	app.post('/api/login', function(req, res, next){
- 			//console.log(req.body)
+ 			console.log(req.body)
  			 passport.authenticate('user-login' , function(err, user, info) {
 		      if(err){
 		        res.send(500, err)
@@ -99,4 +102,197 @@ var signup = require('../controllers/signup'),
 
  	//admin
  	app.get('/api/listcontracts', admin.listcontracts)
+ 	//----------------------Forum APIs-------------------------------
+app.get('/api/forum/listQuestions', function(req, res){
+  var cookie = cookieParser.JSONCookie("username");
+  //var listQuestions = new forum()
+  forum.find(function(err, result){
+    if(err) throw err;
+    res.end(JSON.stringify(result));
+  });
+});
+
+app.post('/api/forum', function(req, res){
+  //var question = new forum()
+   //console.log(req.body);
+   var forumData = new forum(req.body);
+    forumData.save(function (err) {
+      if(err) throw err;
+      res.send("success");
+      console.log('Question inserted');
+    });
+});
+
+app.get('/api/delete/allQuestions', function (req, res){
+    forum.remove(function(err, result){
+    if(err) throw err;
+    res.end("Question Deleted"); 
+  });
+});
+app.get('/api/delete/question/:title', function (req, res){
+    forum.remove({title: req.params.title},function(err, result){
+    if(err) throw err;
+    res.end("Question Deleted"); 
+  });
+});
+app.get('/api/forum/listQuestions/:title', function (req, res){
+    forum.findOne({title: req.params.title}, function(err, result){
+    if(err) throw err;
+    // console.log(JSON.stringify(result));
+    if(result !==null){
+      res.end(JSON.stringify(result));
+    }
+    else 
+      res.end("User not found");
+  });
+});
+
+app.post('/api/forum/postAnswer', function(req, res){
+   var answerData = new answer(req.body);
+    answerData.save(function (err,result) {
+      if(err) throw err;
+      res.send("success");
+      console.log(result);
+    });
+});
+
+app.get('/api/forum/listAnswers', function(req,res){
+  answer.find(function(err, result){
+    if(err) throw err;
+    res.end(JSON.stringify(result));
+  });
+});
+
+app.get('/api/forum/listAnswers/:title', function(req,res){
+  answer.find({title:req.params.title},function(err, result){
+    if(err) throw err;
+    if(result !==null){
+      res.end(JSON.stringify(result));
+    }
+    else 
+      res.end("Question not found");
+  });
+});
+
+app.get('/api/delete/allAnswers', function(req,res){
+  answer.remove(function(err, result){
+    if(err) throw err;
+    res.end(JSON.stringify(result));
+  });
+});
+app.get('/api/delete/answer/:id', function(req,res){
+  answer.remove({_id: req.params.id},function(err, result){
+    if(err) throw err;
+    res.end(JSON.stringify(result));
+  });
+});
+
+
+app.post('/api/forum/ansupvotes', function(req,res){
+  var upvote = new answer()
+upvote.findOneAndUpdate({_id: req.body._id}, {
+      $push: {upvotedBy : req.body.upvotedBy}
+    }, function(err,result){
+    if(err) throw err;
+    res.send("success");
+  }); 
+});
+app.post('/api/forum/ansdownvotes', function(req,res){
+  var downvote = new answer()
+downvote.findOneAndUpdate({_id: req.body._id}, {
+      $push: {downvotedBy : req.body.downvotedBy}
+    }, function(err,result){
+    if(err) throw err;
+    res.send("success");
+  }); 
+});
+app.post('/api/forum/ansdownvotes2', function(req,res){
+  
+  var downvote = new answer()
+downvote.findOneAndUpdate({_id: req.body._id}, {
+      $pull: {downvotedBy : req.body.downvotedBy}
+    }, function(err,result){
+    if(err) throw err;
+    res.send("success");
+  }); 
+});
+app.post('/api/forum/ansupvotes2', function(req,res){
+  
+  var upvote = new answer()
+upvote.findOneAndUpdate({_id: req.body._id}, {
+      $pull: {upvotedBy : req.body.upvotedBy}
+    }, function(err,result){
+    if(err) throw err;
+    res.send("success");
+  }); 
+});
+
+app.get('/api/forum/listQuestions/category/:category', function (req, res){
+    // console.log(req.params.category);
+    //var listQuestion = new forum()
+    var bla = {};
+    bla[req.params.category]=true
+    forum.find(bla, function(err, result){
+    if(err) throw err;
+    if(result !==null){
+      console.log(result);
+      res.end(JSON.stringify(result));
+    }
+    else 
+      res.end("User not found");
+  });
+});
+
+
+app.post('/api/forum/upvotes', function(req,res){
+  // console.log(req.body);
+  var upvote = new forum()
+upvote.findOneAndUpdate({_id: req.body._id}, {
+      $push: {upvotedBy : req.body.byUser}
+    }, function(err,result){
+    // console.log(result);
+    if(err) throw err;
+    res.send("success");
+    console.log("Upvoted");
+  }); 
+});
+app.post('/api/forum/upvotes2', function(req,res){
+  // console.log(req.body);
+  var upvote = new forum()
+upvote.findOneAndUpdate({_id: req.body._id}, {
+      $pull: {upvotedBy : req.body.byUser}
+    }, function(err,result){
+    // console.log(result);
+    if(err) throw err;
+    res.send("success");
+    console.log("Upvoted");
+  }); 
+});
+
+
+app.post('/api/forum/downvotes', function(req,res){
+  // console.log(req.body);
+  var downvote = new forum()
+downvote.findOneAndUpdate({_id: req.body._id}, {
+      $push: {downvotedBy : req.body.byUser}
+    }, function(err,result){
+    // console.log(result);
+    if(err) throw err;
+    res.send("success");
+    console.log("downvoted");
+  }); 
+});
+
+app.post('/api/forum/downvotes2', function(req,res){
+  // console.log(req.body);
+  var downvote = new forum()
+downvote.findOneAndUpdate({_id: req.body._id}, {
+      $pull: {downvotedBy : req.body.byUser}
+    }, function(err,result){
+    // console.log(result);
+    if(err) throw err;
+    res.send("success");
+    console.log("downvoted");
+  }); 
+});
  }

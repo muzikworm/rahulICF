@@ -61,7 +61,7 @@ exports.email_verify = function(req, res){
         if(err)
           console.log(err)
         else if(result){
-          res.sendFile(path.join(__dirname, '../public/templates/forum', 'forum.html'))
+          res.sendFile(path.join(__dirname, '../public', 'index.html'))
           //res.send({state: 'success'})
           console.log(result);
         } else
