@@ -131,6 +131,7 @@ app.controller('headerCtrl', function($scope,$rootScope, $state,$stateParams, $h
                 $scope.hidden2 = false;
             }
             else {
+                //console.log(response)
                 alert('Email already exists');
             }
         });

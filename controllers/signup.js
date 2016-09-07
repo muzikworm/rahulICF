@@ -1,18 +1,21 @@
 var user = require('../models/user')
 var helper = require('sendgrid').mail
 var sg = require('sendgrid').SendGrid('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');
-var passport = require('./passport')
+var passport = require('./passport'),
+path = require('path')
 //app.post('/api/signup', function (req, res) {
    //var signup = mongoose.model('user',userSchema);
 exports.signup = function(req, res){
     // req.body.confirmation_code = Math.random().toString(36).substring(7);
     // req.body.confirmed = 0;
+     var confirmation_code = Math.random().toString(36).substring(7);
      var userData = new user();
     userData.fname = req.body.fname;
     userData.lname = req.body.lname;
     userData.email = req.body.email;
     userData.password = userData.generateHash(req.body.password)
-    userData.confirmation_code = Math.random().toString(36).substring(7);
+    userData.confirmation_code = confirmation_code
+    userData.confirmed = false
     userData.createdDate = new Date();
 
   
@@ -22,7 +25,7 @@ exports.signup = function(req, res){
       from_email = new helper.Email("indiancreativeforum@gmail.com");
       to_email = new helper.Email(req.body.email);
       subject = "Email Confirmation";
-      content = new helper.Content("text/html", "Thank you for signing up. Please click the link below to verify your email. <a href='https://localhost:35725/email_verify/"+req.body.confirmation_code+"'>Verify Email</a>. ");
+      content = new helper.Content("text/html", "Thank you for signing up. Please click the link below to verify your email. <a href='http://localhost:35725/email_verify/"+confirmation_code+"'>Verify Email</a>. ");
       mail = new helper.Mail(from_email, subject, to_email, content);
       var requestBody = mail.toJSON()
       var request = sg.emptyRequest()
@@ -33,7 +36,7 @@ exports.signup = function(req, res){
       })
       userData.save(function (err) {
       if(err) throw err;
-      res.send("success");
+      res.send({state: 'success'});
       console.log('user inserted');
     });
     }
@@ -49,14 +52,17 @@ exports.signup = function(req, res){
 //app.get('/email_verify/:confirmation_code', function(req, res){
 exports.email_verify = function(req, res){
     
-  user.findOneAndUpdate({ confirmation_code: req.params.confirmation_code }, { 
-      confirmation_code : "",
-      confirmed : 1
+  user.update({ confirmation_code: req.params.confirmation_code }, { 
+    $set : {
+        confirmation_code : "",
+        confirmed : true
+        } 
       },function(err,result) {
         if(err)
           console.log(err)
         else if(result){
-          res.send({state: 'success'})
+          res.sendFile(path.join(__dirname, '../public/templates/forum', 'forum.html'))
+          //res.send({state: 'success'})
           console.log(result);
         } else
           res.send({state: 'failure', message: 'wrong code'})
