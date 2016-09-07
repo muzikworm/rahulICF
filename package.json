@@ -16,21 +16,20 @@
   "homepage": "https://bitbucket.org/sumitbhaintwal/cooper#readme",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
-    "body-parser": "^1.15.1",
-    "cookie-parser": "^1.4.3",
-    "dotenv": "^2.0.0",
-    "express": "^4.13.4",
-    "express-session": "^1.14.1",
+    "body-parser": "1.15.2",
+    "cookie-parser": "1.4.3",
+    "dotenv": "2.0.0",
+    "express": "4.14.0",
+    "express-session": "1.14.1",
     "fs": "0.0.2",
-    "mkdirp": "^0.5.1",
+    "mkdirp": "0.5.1",
     "mongoose": "4.3",
-    "morgan": "^1.7.0",
+    "morgan": "1.7.0",
     "multer": "1.1.0",
-    "nodemailer": "^2.5.0",
-    "nodemon": "^1.10.2",
-    "passport-auth0": "^0.5.2",
-    "passport-local": "^1.0.0",
-    "pdfmake": "^0.1.18",
-    "sendgrid": "^3.0.8"
+    "passport": "0.3.2",
+    "passport-auth0": "0.5.2",
+    "passport-local": "1.0.0",
+    "pdfmake": "0.1.18",
+    "sendgrid": "3.0.11"
   }
 }
