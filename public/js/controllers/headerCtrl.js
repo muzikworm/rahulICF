@@ -97,8 +97,9 @@ app.controller('headerCtrl', function($scope,$rootScope, $state,$stateParams, $h
             email : $scope.email,
             password : $scope.password
         };
+        //console.log(loginData)
         $http.post('/api/login', loginData).success(function(response){
-            if(response == "success"){
+            if(response.state == "success"){
                 authUser.setUsername($scope.email);
                 $rootScope.loggedOut = false;
                 $scope.hidden = false;
@@ -106,6 +107,7 @@ app.controller('headerCtrl', function($scope,$rootScope, $state,$stateParams, $h
                 $state.go('forum');
             }
             else {
+                //console.log(response)
                 alert("Incorrect Email or Password");
             }
         });
@@ -119,8 +121,9 @@ app.controller('headerCtrl', function($scope,$rootScope, $state,$stateParams, $h
             cpassword : $scope.cpassword,
             verifed : false
         }
+       // console.log(signupData)
         $http.post('/api/signup', signupData).success(function(response){
-            if(response == "success"){
+            if(response.state == "success"){
                 $state.go('forum');
                 authUser.setUsername($scope.email);
                 $rootScope.loggedOut = false;

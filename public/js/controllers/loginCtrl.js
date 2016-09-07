@@ -1,5 +1,5 @@
 app.controller('loginCtrl', function($scope, $state, $http, authUser){
-	
+	// /$scope.user = {}
 	if(authUser.isLoggedIn()){
 		$state.go('dashboard');
 	}
@@ -55,10 +55,10 @@ app.controller('loginCtrl', function($scope, $state, $http, authUser){
 
     $scope.login = function(){
         loginData = {
-            username : $scope.username,
+            email : $scope.email,
             password : $scope.password
         };
-
+        console.log('login = '+loginData)
         $http.post('/api/login', loginData).success(function(response){
             if(response == "success"){
                 authUser.setUsername($scope.username);
@@ -71,14 +71,14 @@ app.controller('loginCtrl', function($scope, $state, $http, authUser){
     };
     $scope.signup = function(){
         signupData = {
-            fname : $scope.fname,
-            lname : $scope.lname,
-            username : $scope.username,
-            email : $scope.email,
-            password : $scope.password,
+            'fname' : $scope.fname,
+            'lname' : $scope.lname,
+           // username : $scope.username,
+            'email' : $scope.email,
+            'password' : $scope.password,
             verifed : false
         }
-
+        console.log(signupData)
         $http.post('/api/signup', signupData).success(function(response){
             if(response == "success"){
                 $state.go('dashboard');
