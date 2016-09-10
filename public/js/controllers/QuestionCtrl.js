@@ -22,12 +22,13 @@ app.controller('QuestionCtrl', function($scope, $rootScope, $state, $http, $stat
 
 
     $http.get('/api/forum/listQuestions').success(function(response){
+
         $scope.questions = response;
     });
 
     $scope.addQuery = function(){
         forumData = {
-            askedby : $rootScope.name,
+            askedby : $rootScope.fname,
             askedbyEmail : authUser.getUsername(),
             title : $scope.questionTitle,
             question : $scope.questionDetail,
@@ -43,7 +44,7 @@ app.controller('QuestionCtrl', function($scope, $rootScope, $state, $http, $stat
             date : new Date()
         }
 
-
+        console.log("Name is here"+ $rootScope.fname);
         $http.post('/api/forum', forumData).success(function(response){
             if(response == "success"){
                 $state.go('forum');
@@ -57,7 +58,8 @@ app.controller('QuestionCtrl', function($scope, $rootScope, $state, $http, $stat
 
         $('.add-query-popup').hide();
     }
-
+   
+  
 
 	$http.get('/api/forum/listQuestions/'+$stateParams.title).success(function(response){
 		$scope.questionData = response;
@@ -91,6 +93,7 @@ app.controller('QuestionCtrl', function($scope, $rootScope, $state, $http, $stat
             }
 
             else{
+
                 for(var i=0;i<$scope.questions.length;i++){
 
                 if($scope.questions[i]._id===id){
@@ -339,8 +342,11 @@ app.controller('QuestionCtrl', function($scope, $rootScope, $state, $http, $stat
         
     }); 
     
-	$scope.writeAnswer = function(id){
-
+	$scope.writeAnswer = function(id,emailto){
+        
+        
+        console.log(emailto);
+        
         if (authUser.isLoggedIn() == false) {
             alert("Login to vote!")
         }
@@ -365,6 +371,11 @@ app.controller('QuestionCtrl', function($scope, $rootScope, $state, $http, $stat
                 });
             }); 
         }
+
+
+
+       
+    
     }
     $scope.deleteAnswer = function(id){
         

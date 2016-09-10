@@ -12,6 +12,8 @@ var signup = require('../controllers/signup'),
 	cookieParser = require('cookie-parser'),
 	forum = require('../models/forum'),
 	answer = require('../models/answer');
+  var helper = require('sendgrid').mail;
+var sg = require('sendgrid').SendGrid('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');
  module.exports = function(app, passport){
 
  // 	var router = express.Router();
@@ -148,12 +150,24 @@ app.get('/api/forum/listQuestions/:title', function (req, res){
 });
 
 app.post('/api/forum/postAnswer', function(req, res){
-   var answerData = new answer(req.body);
+   var answerData = new answer(req.body.answerData);
+   var emailto=req.body.emailto;
+
+
     answerData.save(function (err,result) {
       if(err) throw err;
       res.send("success");
       console.log(result);
     });
+            var sendgrid = require("sendgrid")("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");
+            var email = new sendgrid.Email();
+
+            email.addTo(emailto);
+            email.setFrom("indiancreativeforum@gmail.com");
+            email.setSubject("Sending with SendGrid is Fun");
+            email.setHtml("and easy to do anywhere, even with Node.js");
+
+            sendgrid.send(email);
 });
 
 app.get('/api/forum/listAnswers', function(req,res){

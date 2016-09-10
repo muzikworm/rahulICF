@@ -79,9 +79,9 @@
 				<th><p>Comments</p></th>
 			</tr>
 			<h3 ng-if="!catCheck" class="cat-heading">Category: All</h3>
-			<tr ng-if="questions.length!=0 && categories.length==undefined" ng-repeat="x in questions">
+			<tr ng-if="questions.length!=0 && categories.length==undefined" ng-repeat="x in questions | orderBy:'+':true" ><!-- Kunal Made changes here......-->
 				<td class="title-length"><h5 class="pointer" ng-click="questionSingle(x._id, x.title)">{{x.title}}</h5></td>
-				<td><h5 class="pointer" ng-click="profile(x.askedbyEmail)">{{x.askedby}}</h5></td>
+				<td><h5 class="pointer" ng-click="profile(x.askedbyEmail)">{{x.askedbyEmail}}</h5></td>
 				<td><h5>{{x.upvotedBy.length}}</h5></td>
 				<td><h5>{{x.downvotedBy.length}}</h5></td>
 				<td><h5 ng-init="title(x.answers)">{{c[$index]}}</h5></td>
@@ -89,7 +89,7 @@
 
 
 			<h3 ng-if="catCheck" class="cat-heading">Category: {{catName}}</h3>
-			<tr ng-if="questions.length!=0 && categories.length!=0" ng-repeat="x in categories">
+			<tr ng-if="questions.length!=0 && categories.length!=0" ng-repeat="x in categories | orderBy:'+':true">  <!-- Kunal Made changes here......-->
 				<td class="title-length"><h5 class="pointer" ng-click="questionSingle(x._id, x.title)">{{x.title}}</h5></td>
 				<td><h5 class="pointer" ng-click="profile(x.askedby)">{{x.askedby}}</h5></td>
 				<td><h5>{{x.upvotedBy.length}}</h5></td>
